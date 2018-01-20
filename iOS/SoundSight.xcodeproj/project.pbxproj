@@ -1,0 +1,785 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54D97687DDF69E88A009CD31 /* libPods-SoundSightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */; };
+		5ABF192F8E02EE5E68BD70B6 /* libPods-SoundSightUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */; };
+		9B26D09362FED4234F6298D6 /* libPods-SoundSight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */; };
+		A5D2D0F52013926D0071C448 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D0F42013926D0071C448 /* AppDelegate.m */; };
+		A5D2D0F82013926D0071C448 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D0F72013926D0071C448 /* ViewController.m */; };
+		A5D2D0FB2013926D0071C448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D0F92013926D0071C448 /* Main.storyboard */; };
+		A5D2D0FD2013926D0071C448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D0FC2013926D0071C448 /* Assets.xcassets */; };
+		A5D2D1002013926D0071C448 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D0FE2013926D0071C448 /* LaunchScreen.storyboard */; };
+		A5D2D1032013926D0071C448 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1022013926D0071C448 /* main.m */; };
+		A5D2D10D2013926D0071C448 /* SoundSightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D10C2013926D0071C448 /* SoundSightTests.m */; };
+		A5D2D1182013926D0071C448 /* SoundSightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1172013926D0071C448 /* SoundSightUITests.m */; };
+		A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1272013A0810071C448 /* CameraViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5D2D1092013926D0071C448 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5D2D0E82013926D0071C448 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5D2D0EF2013926D0071C448;
+			remoteInfo = SoundSight;
+		};
+		A5D2D1142013926D0071C448 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5D2D0E82013926D0071C448 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5D2D0EF2013926D0071C448;
+			remoteInfo = SoundSight;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundSight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight.debug.xcconfig"; sourceTree = "<group>"; };
+		1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSight.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight.release.xcconfig"; sourceTree = "<group>"; };
+		518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundSightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundSightUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5D2D0F02013926D0071C448 /* SoundSight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundSight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D2D0F32013926D0071C448 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A5D2D0F42013926D0071C448 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A5D2D0F62013926D0071C448 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A5D2D0F72013926D0071C448 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A5D2D0FA2013926D0071C448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5D2D0FC2013926D0071C448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5D2D0FF2013926D0071C448 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5D2D1012013926D0071C448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D2D1022013926D0071C448 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A5D2D1082013926D0071C448 /* SoundSightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundSightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D2D10C2013926D0071C448 /* SoundSightTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundSightTests.m; sourceTree = "<group>"; };
+		A5D2D10E2013926D0071C448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D2D1132013926D0071C448 /* SoundSightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundSightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D2D1172013926D0071C448 /* SoundSightUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundSightUITests.m; sourceTree = "<group>"; };
+		A5D2D1192013926E0071C448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D2D1262013A0810071C448 /* SoundSight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundSight-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5D2D1272013A0810071C448 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.release.xcconfig"; sourceTree = "<group>"; };
+		CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5D2D0ED2013926D0071C448 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B26D09362FED4234F6298D6 /* libPods-SoundSight.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2D1052013926D0071C448 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54D97687DDF69E88A009CD31 /* libPods-SoundSightTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2D1102013926D0071C448 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ABF192F8E02EE5E68BD70B6 /* libPods-SoundSightUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52807A263AC62978E9F13AE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */,
+				518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */,
+				6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C7635D857094E7C2B7C7005 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */,
+				1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */,
+				ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */,
+				A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */,
+				7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */,
+				CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A5D2D0E72013926D0071C448 = {
+			isa = PBXGroup;
+			children = (
+				A5D2D0F22013926D0071C448 /* SoundSight */,
+				A5D2D10B2013926D0071C448 /* SoundSightTests */,
+				A5D2D1162013926D0071C448 /* SoundSightUITests */,
+				A5D2D0F12013926D0071C448 /* Products */,
+				7C7635D857094E7C2B7C7005 /* Pods */,
+				52807A263AC62978E9F13AE1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A5D2D0F12013926D0071C448 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D0F02013926D0071C448 /* SoundSight.app */,
+				A5D2D1082013926D0071C448 /* SoundSightTests.xctest */,
+				A5D2D1132013926D0071C448 /* SoundSightUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5D2D0F22013926D0071C448 /* SoundSight */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D12520139F920071C448 /* CameraControl */,
+				A5D2D0F32013926D0071C448 /* AppDelegate.h */,
+				A5D2D0F42013926D0071C448 /* AppDelegate.m */,
+				A5D2D0F62013926D0071C448 /* ViewController.h */,
+				A5D2D0F72013926D0071C448 /* ViewController.m */,
+				A5D2D0F92013926D0071C448 /* Main.storyboard */,
+				A5D2D0FC2013926D0071C448 /* Assets.xcassets */,
+				A5D2D0FE2013926D0071C448 /* LaunchScreen.storyboard */,
+				A5D2D1012013926D0071C448 /* Info.plist */,
+				A5D2D1022013926D0071C448 /* main.m */,
+			);
+			path = SoundSight;
+			sourceTree = "<group>";
+		};
+		A5D2D10B2013926D0071C448 /* SoundSightTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D10C2013926D0071C448 /* SoundSightTests.m */,
+				A5D2D10E2013926D0071C448 /* Info.plist */,
+			);
+			path = SoundSightTests;
+			sourceTree = "<group>";
+		};
+		A5D2D1162013926D0071C448 /* SoundSightUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D1172013926D0071C448 /* SoundSightUITests.m */,
+				A5D2D1192013926E0071C448 /* Info.plist */,
+			);
+			path = SoundSightUITests;
+			sourceTree = "<group>";
+		};
+		A5D2D12520139F920071C448 /* CameraControl */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D1272013A0810071C448 /* CameraViewController.swift */,
+				A5D2D1262013A0810071C448 /* SoundSight-Bridging-Header.h */,
+			);
+			path = CameraControl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5D2D0EF2013926D0071C448 /* SoundSight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5D2D11C2013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSight" */;
+			buildPhases = (
+				D4FB7AE3297F1C35B17332C9 /* [CP] Check Pods Manifest.lock */,
+				A5D2D0EC2013926D0071C448 /* Sources */,
+				A5D2D0ED2013926D0071C448 /* Frameworks */,
+				A5D2D0EE2013926D0071C448 /* Resources */,
+				712CEA0BE24C482784476717 /* [CP] Embed Pods Frameworks */,
+				095A149D4346A0251135981B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundSight;
+			productName = SoundSight;
+			productReference = A5D2D0F02013926D0071C448 /* SoundSight.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A5D2D1072013926D0071C448 /* SoundSightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5D2D11F2013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSightTests" */;
+			buildPhases = (
+				85CC02ADEF70D7114195BF1A /* [CP] Check Pods Manifest.lock */,
+				A5D2D1042013926D0071C448 /* Sources */,
+				A5D2D1052013926D0071C448 /* Frameworks */,
+				A5D2D1062013926D0071C448 /* Resources */,
+				2095028648D51644BCAE3005 /* [CP] Embed Pods Frameworks */,
+				AE6C5F0F5A1DC3E85CCB0955 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5D2D10A2013926D0071C448 /* PBXTargetDependency */,
+			);
+			name = SoundSightTests;
+			productName = SoundSightTests;
+			productReference = A5D2D1082013926D0071C448 /* SoundSightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A5D2D1122013926D0071C448 /* SoundSightUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5D2D1222013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSightUITests" */;
+			buildPhases = (
+				A8CE8999316121CE3B8483BC /* [CP] Check Pods Manifest.lock */,
+				A5D2D10F2013926D0071C448 /* Sources */,
+				A5D2D1102013926D0071C448 /* Frameworks */,
+				A5D2D1112013926D0071C448 /* Resources */,
+				DC0742B3A4E0371E45BA0F49 /* [CP] Embed Pods Frameworks */,
+				0D2009AF53F4A74D71470437 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5D2D1152013926D0071C448 /* PBXTargetDependency */,
+			);
+			name = SoundSightUITests;
+			productName = SoundSightUITests;
+			productReference = A5D2D1132013926D0071C448 /* SoundSightUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5D2D0E82013926D0071C448 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Morris Chen";
+				TargetAttributes = {
+					A5D2D0EF2013926D0071C448 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					A5D2D1072013926D0071C448 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A5D2D0EF2013926D0071C448;
+					};
+					A5D2D1122013926D0071C448 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A5D2D0EF2013926D0071C448;
+					};
+				};
+			};
+			buildConfigurationList = A5D2D0EB2013926D0071C448 /* Build configuration list for PBXProject "SoundSight" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5D2D0E72013926D0071C448;
+			productRefGroup = A5D2D0F12013926D0071C448 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5D2D0EF2013926D0071C448 /* SoundSight */,
+				A5D2D1072013926D0071C448 /* SoundSightTests */,
+				A5D2D1122013926D0071C448 /* SoundSightUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5D2D0EE2013926D0071C448 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5D2D1002013926D0071C448 /* LaunchScreen.storyboard in Resources */,
+				A5D2D0FD2013926D0071C448 /* Assets.xcassets in Resources */,
+				A5D2D0FB2013926D0071C448 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2D1062013926D0071C448 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2D1112013926D0071C448 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		095A149D4346A0251135981B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D2009AF53F4A74D71470437 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2095028648D51644BCAE3005 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		712CEA0BE24C482784476717 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85CC02ADEF70D7114195BF1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundSightTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8CE8999316121CE3B8483BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundSightUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE6C5F0F5A1DC3E85CCB0955 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4FB7AE3297F1C35B17332C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundSight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC0742B3A4E0371E45BA0F49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5D2D0EC2013926D0071C448 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5D2D0F82013926D0071C448 /* ViewController.m in Sources */,
+				A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */,
+				A5D2D1032013926D0071C448 /* main.m in Sources */,
+				A5D2D0F52013926D0071C448 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2D1042013926D0071C448 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5D2D10D2013926D0071C448 /* SoundSightTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5D2D10F2013926D0071C448 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5D2D1182013926D0071C448 /* SoundSightUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5D2D10A2013926D0071C448 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5D2D0EF2013926D0071C448 /* SoundSight */;
+			targetProxy = A5D2D1092013926D0071C448 /* PBXContainerItemProxy */;
+		};
+		A5D2D1152013926D0071C448 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5D2D0EF2013926D0071C448 /* SoundSight */;
+			targetProxy = A5D2D1142013926D0071C448 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A5D2D0F92013926D0071C448 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5D2D0FA2013926D0071C448 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5D2D0FE2013926D0071C448 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5D2D0FF2013926D0071C448 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5D2D11A2013926E0071C448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A5D2D11B2013926E0071C448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5D2D11D2013926E0071C448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC5UA2XZJW;
+				INFOPLIST_FILE = SoundSight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundSight/CameraControl/SoundSight-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5D2D11E2013926E0071C448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC5UA2XZJW;
+				INFOPLIST_FILE = SoundSight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundSight/CameraControl/SoundSight-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A5D2D1202013926E0071C448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC5UA2XZJW;
+				INFOPLIST_FILE = SoundSightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundSight.app/SoundSight";
+			};
+			name = Debug;
+		};
+		A5D2D1212013926E0071C448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC5UA2XZJW;
+				INFOPLIST_FILE = SoundSightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SoundSight.app/SoundSight";
+			};
+			name = Release;
+		};
+		A5D2D1232013926E0071C448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC5UA2XZJW;
+				INFOPLIST_FILE = SoundSightUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSightUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SoundSight;
+			};
+			name = Debug;
+		};
+		A5D2D1242013926E0071C448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JC5UA2XZJW;
+				INFOPLIST_FILE = SoundSightUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSightUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SoundSight;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5D2D0EB2013926D0071C448 /* Build configuration list for PBXProject "SoundSight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5D2D11A2013926E0071C448 /* Debug */,
+				A5D2D11B2013926E0071C448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5D2D11C2013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5D2D11D2013926E0071C448 /* Debug */,
+				A5D2D11E2013926E0071C448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5D2D11F2013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5D2D1202013926E0071C448 /* Debug */,
+				A5D2D1212013926E0071C448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5D2D1222013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSightUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5D2D1232013926E0071C448 /* Debug */,
+				A5D2D1242013926E0071C448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5D2D0E82013926D0071C448 /* Project object */;
+}
