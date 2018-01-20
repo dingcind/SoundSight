@@ -1,2 +1,7 @@
 SoundSight
-U of T Hacks 2018
+UofT Hacks 2018
+
+Morris Chen
+Cindy Ding
+Quinlan Sykora
+anna verkhovskaya
