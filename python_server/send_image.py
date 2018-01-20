@@ -8,6 +8,7 @@ dir_path = os.path.dirname(path)
 
 @route('/img_for_api', method='GET')
 def img_for_api():
+    time.sleep(5)
     return static_file("img_for_api.jpg", root=dir_path)
 
 
