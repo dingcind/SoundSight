@@ -17,9 +17,9 @@ class Item:
 		self.pos = new_pos
 		self.size = new_size
 
-	def age(self):
+	def check_age(self):
 		self.age += 1
-		if self.age < 3:
+		if self.age < 5:
 			return self
 		else:
 			return None
@@ -40,7 +40,7 @@ def normalize(new_data):
 			items.append(Item(each["name"], each["pos"], each["size"]))
 	live_items = []
 	for item in items:
-		live_items.append(item.age())
+		live_items.append(item.check_age())
 	while None in live_items:
 		live_items.remove(None)
 	return [x.to_dict() for x in live_items]
@@ -69,4 +69,4 @@ def main():
 def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
-run(host='0.0.0.0', port=80, debug=True, reloader=True)
+#run(host='0.0.0.0', port=80, debug=True, reloader=True)
