@@ -6,6 +6,7 @@ import os
 import math
 import sys
 import cv2
+import cherrypy
 
 new_image_path = "img.png"
 resulting_data_path = "result.txt"
@@ -97,4 +98,4 @@ def main():
 def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
-run(host='0.0.0.0', port=80, debug=True, reloader=True)
+run(host='0.0.0.0', port=80, debug=True, reloader=True, server='cherrypy')
