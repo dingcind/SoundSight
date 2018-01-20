@@ -12,25 +12,26 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController{
-    @IBAction func cindy(_ sender: Any) {
-        takePicture()
-    }
     
   let session = AVCaptureSession()
   var camera : AVCaptureDevice?
   var cameraPreviewLayer : AVCaptureVideoPreviewLayer?
   var cameraCaptureOutput : AVCapturePhotoOutput?
 
-
   override func viewDidLoad(){
     super.viewDidLoad()
     initializeCaptureSession()
+    
+    Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in self.takePicture()})
     // additional setup
   }
 
   //this function is to display the photo captured
-  func displayCapturedPhoto(capturedPhoto : UIImage){
-    
+  func processCapturedPhoto(capturedPhoto : UIImage){
+    let imageData = UIImageJPEGRepresentation(capturedPhoto, 1)
+    let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
+    print(strBase64)
+    print("\n")
   }
 
   func initializeCaptureSession(){
@@ -51,6 +52,7 @@ class CameraViewController: UIViewController{
     cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
 //    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
     cameraPreviewLayer?.frame = view.bounds
+    
     cameraPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
 
     view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
@@ -60,7 +62,8 @@ class CameraViewController: UIViewController{
   }
 
   func takePicture() {
-
+    print("FUCK YOU")
+    
     let settings = AVCapturePhotoSettings()
     settings.flashMode = .off //if this fails check camera settings for flash off
 
@@ -88,7 +91,7 @@ extension CameraViewController : AVCapturePhotoCaptureDelegate{
         if let finalImage = UIImage(data: dataImage){
 
           //to do whatever with photo capture (aka send to quin)
-          displayCapturedPhoto(capturedPhoto: finalImage)
+          processCapturedPhoto(capturedPhoto: finalImage)
 
         }
       }
