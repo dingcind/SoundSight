@@ -30,9 +30,13 @@ class CameraViewController: UIViewController{
   func processCapturedPhoto(capturedPhoto : UIImage){
     let imageData = UIImageJPEGRepresentation(capturedPhoto, 1)
     let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
-    print(strBase64)
-    print("\n")
+    let callback = ServerCalls.identifyImage(strBase64) as NSDictionary
+    makeSound(data: callback)
   }
+    
+    func makeSound(data: NSDictionary) {
+        // TODO: Sound off
+    }
 
   func initializeCaptureSession(){
     session.sessionPreset = AVCaptureSessionPresetHigh

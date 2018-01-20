@@ -24,6 +24,7 @@
 		A5D2D1B42013A9DF0071C448 /* LockScreenScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D1B12013A9DF0071C448 /* LockScreenScene.sks */; };
 		A5D2D1B72013ADE30071C448 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1B62013ADE30071C448 /* NetworkManager.m */; };
 		A5D2D1BB2013D3380071C448 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1BA2013D3380071C448 /* TextToSpeech.swift */; };
+		A5D2D1BD2013DA7D0071C448 /* ServerCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1BC2013DA7D0071C448 /* ServerCalls.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		A5D2D1B62013ADE30071C448 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		A5D2D1B82013AE030071C448 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		A5D2D1BA2013D3380071C448 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
+		A5D2D1BC2013DA7D0071C448 /* ServerCalls.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerCalls.m; sourceTree = "<group>"; };
+		A5D2D1BE2013DA930071C448 /* ServerCalls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerCalls.h; sourceTree = "<group>"; };
 		A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 			children = (
 				A5D2D1B82013AE030071C448 /* NetworkManager.h */,
 				A5D2D1B62013ADE30071C448 /* NetworkManager.m */,
+				A5D2D1BE2013DA930071C448 /* ServerCalls.h */,
+				A5D2D1BC2013DA7D0071C448 /* ServerCalls.m */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				A5D2D1BB2013D3380071C448 /* TextToSpeech.swift in Sources */,
 				A5D2D1032013926D0071C448 /* main.m in Sources */,
 				A5D2D0F52013926D0071C448 /* AppDelegate.m in Sources */,
+				A5D2D1BD2013DA7D0071C448 /* ServerCalls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
