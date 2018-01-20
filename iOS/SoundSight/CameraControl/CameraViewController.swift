@@ -12,7 +12,10 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController{
-
+    @IBAction func cindy(_ sender: Any) {
+        takePicture()
+    }
+    
   let session = AVCaptureSession()
   var camera : AVCaptureDevice?
   var cameraPreviewLayer : AVCaptureVideoPreviewLayer?
@@ -46,7 +49,7 @@ class CameraViewController: UIViewController{
     }
 
     cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
+//    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
     cameraPreviewLayer?.frame = view.bounds
     cameraPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
 
@@ -56,11 +59,10 @@ class CameraViewController: UIViewController{
 
   }
 
-  func takePicture(){
+  func takePicture() {
 
     let settings = AVCapturePhotoSettings()
     settings.flashMode = .off //if this fails check camera settings for flash off
-
 
     cameraCaptureOutput?.capturePhoto(with: settings, delegate: self)
 
@@ -72,17 +74,16 @@ class CameraViewController: UIViewController{
   }
 }
 
-extension ViewController : AVCapturePhotoCaptureDelegate{
+extension CameraViewController : AVCapturePhotoCaptureDelegate{
 
-  func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?,
-    previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCapureBracketedStillImageSettings?，error: Error?){
+    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?,error: Error?){
 
     if let unwrappedError = error {
       print(unwrappedError.localizedDescription)
     }
     else {
 
-      if let sampleBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBugger: sampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+        if let sampleBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
       {
         if let finalImage = UIImage(data: dataImage){
 

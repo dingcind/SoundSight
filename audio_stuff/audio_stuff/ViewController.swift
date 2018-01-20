@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
 ]
 """.data(using: .utf8)!
-        let urlString = URL(string: "https://jsonplaceholder.typicode.com/posts")
+        let urlString = URL(string: "http://34.214.105.118:80/get_example")
         if let url = urlString {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if error != nil {

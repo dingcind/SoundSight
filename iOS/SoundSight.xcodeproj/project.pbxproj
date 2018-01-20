@@ -19,6 +19,10 @@
 		A5D2D10D2013926D0071C448 /* SoundSightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D10C2013926D0071C448 /* SoundSightTests.m */; };
 		A5D2D1182013926D0071C448 /* SoundSightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1172013926D0071C448 /* SoundSightUITests.m */; };
 		A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1272013A0810071C448 /* CameraViewController.swift */; };
+		A5D2D1B22013A9DF0071C448 /* LockScreenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1AF2013A9DF0071C448 /* LockScreenScene.swift */; };
+		A5D2D1B32013A9DF0071C448 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1B02013A9DF0071C448 /* LockScreenViewController.swift */; };
+		A5D2D1B42013A9DF0071C448 /* LockScreenScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D1B12013A9DF0071C448 /* LockScreenScene.sks */; };
+		A5D2D1B72013ADE30071C448 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1B62013ADE30071C448 /* NetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,11 @@
 		A5D2D1192013926E0071C448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5D2D1262013A0810071C448 /* SoundSight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundSight-Bridging-Header.h"; sourceTree = "<group>"; };
 		A5D2D1272013A0810071C448 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		A5D2D1AF2013A9DF0071C448 /* LockScreenScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenScene.swift; sourceTree = "<group>"; };
+		A5D2D1B02013A9DF0071C448 /* LockScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
+		A5D2D1B12013A9DF0071C448 /* LockScreenScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LockScreenScene.sks; sourceTree = "<group>"; };
+		A5D2D1B62013ADE30071C448 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		A5D2D1B82013AE030071C448 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +153,8 @@
 		A5D2D0F22013926D0071C448 /* SoundSight */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2D1B52013ADB00071C448 /* NetworkManager */,
+				A5D2D1AE2013A9C20071C448 /* LockScreen */,
 				A5D2D12520139F920071C448 /* CameraControl */,
 				A5D2D0F32013926D0071C448 /* AppDelegate.h */,
 				A5D2D0F42013926D0071C448 /* AppDelegate.m */,
@@ -183,6 +194,25 @@
 				A5D2D1262013A0810071C448 /* SoundSight-Bridging-Header.h */,
 			);
 			path = CameraControl;
+			sourceTree = "<group>";
+		};
+		A5D2D1AE2013A9C20071C448 /* LockScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D1B12013A9DF0071C448 /* LockScreenScene.sks */,
+				A5D2D1AF2013A9DF0071C448 /* LockScreenScene.swift */,
+				A5D2D1B02013A9DF0071C448 /* LockScreenViewController.swift */,
+			);
+			path = LockScreen;
+			sourceTree = "<group>";
+		};
+		A5D2D1B52013ADB00071C448 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D1B82013AE030071C448 /* NetworkManager.h */,
+				A5D2D1B62013ADE30071C448 /* NetworkManager.m */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D2D1002013926D0071C448 /* LaunchScreen.storyboard in Resources */,
+				A5D2D1B42013A9DF0071C448 /* LockScreenScene.sks in Resources */,
 				A5D2D0FD2013926D0071C448 /* Assets.xcassets in Resources */,
 				A5D2D0FB2013926D0071C448 /* Main.storyboard in Resources */,
 			);
@@ -475,6 +506,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D2D1B22013A9DF0071C448 /* LockScreenScene.swift in Sources */,
+				A5D2D1B72013ADE30071C448 /* NetworkManager.m in Sources */,
+				A5D2D1B32013A9DF0071C448 /* LockScreenViewController.swift in Sources */,
 				A5D2D0F82013926D0071C448 /* ViewController.m in Sources */,
 				A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */,
 				A5D2D1032013926D0071C448 /* main.m in Sources */,
