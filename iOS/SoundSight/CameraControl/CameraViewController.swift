@@ -8,7 +8,7 @@
 
 import Foundation
 
-import UIkit
+import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController{
@@ -23,6 +23,11 @@ class CameraViewController: UIViewController{
     super.viewDidLoad()
     initializeCaptureSession()
     // additional setup
+  }
+
+  //this function is to display the photo captured
+  func displayCapturedPhoto(capturedPhoto : UIImage){
+    
   }
 
   func initializeCaptureSession(){
@@ -51,8 +56,41 @@ class CameraViewController: UIViewController{
 
   }
 
+  func takePicture(){
+
+    let settings = AVCapturePhotoSettings()
+    settings.flashMode = .off //if this fails check camera settings for flash off
+
+
+    cameraCaptureOutput?.capturePhoto(with: settings, delegate: self)
+
+  }
+
   override func didReceiveMemoryWarning(){
     super.didReceiveMemoryWarning()
 
+  }
+}
+
+extension ViewController : AVCapturePhotoCaptureDelegate{
+
+  func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?,
+    previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCapureBracketedStillImageSettings?，error: Error?){
+
+    if let unwrappedError = error {
+      print(unwrappedError.localizedDescription)
+    }
+    else {
+
+      if let sampleBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBugger: sampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+      {
+        if let finalImage = UIImage(data: dataImage){
+
+          //to do whatever with photo capture (aka send to quin)
+          displayCapturedPhoto(capturedPhoto: finalImage)
+
+        }
+      }
+    }
   }
 }
