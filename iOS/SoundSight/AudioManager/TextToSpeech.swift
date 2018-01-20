@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import AVFoundation
+
+class TextToSpeech: NSObject{
+    
+    
+    let speechSynthesizer = AVSpeechSynthesizer()
+    
+    func speak(text: String){
+        let speechUtterance = AVSpeechUtterance(string: text)
+        speechSynthesizer.speak(speechUtterance)
+        
+    }
+    
+}
