@@ -18,6 +18,7 @@
 		A5D2D1032013926D0071C448 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1022013926D0071C448 /* main.m */; };
 		A5D2D10D2013926D0071C448 /* SoundSightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D10C2013926D0071C448 /* SoundSightTests.m */; };
 		A5D2D1182013926D0071C448 /* SoundSightUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1172013926D0071C448 /* SoundSightUITests.m */; };
+		A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1272013A0810071C448 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		A5D2D1132013926D0071C448 /* SoundSightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundSightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D2D1172013926D0071C448 /* SoundSightUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundSightUITests.m; sourceTree = "<group>"; };
 		A5D2D1192013926E0071C448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D2D1262013A0810071C448 /* SoundSight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundSight-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5D2D1272013A0810071C448 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		A5D2D0F22013926D0071C448 /* SoundSight */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2D12520139F920071C448 /* CameraControl */,
 				A5D2D0F32013926D0071C448 /* AppDelegate.h */,
 				A5D2D0F42013926D0071C448 /* AppDelegate.m */,
 				A5D2D0F62013926D0071C448 /* ViewController.h */,
@@ -170,6 +174,15 @@
 				A5D2D1192013926E0071C448 /* Info.plist */,
 			);
 			path = SoundSightUITests;
+			sourceTree = "<group>";
+		};
+		A5D2D12520139F920071C448 /* CameraControl */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D1272013A0810071C448 /* CameraViewController.swift */,
+				A5D2D1262013A0810071C448 /* SoundSight-Bridging-Header.h */,
+			);
+			path = CameraControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +261,7 @@
 				TargetAttributes = {
 					A5D2D0EF2013926D0071C448 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					A5D2D1072013926D0071C448 = {
@@ -462,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5D2D0F82013926D0071C448 /* ViewController.m in Sources */,
+				A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */,
 				A5D2D1032013926D0071C448 /* main.m in Sources */,
 				A5D2D0F52013926D0071C448 /* AppDelegate.m in Sources */,
 			);
@@ -627,12 +642,16 @@
 			baseConfigurationReference = 0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
 				INFOPLIST_FILE = SoundSight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundSight/CameraControl/SoundSight-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -642,12 +661,15 @@
 			baseConfigurationReference = 1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
 				INFOPLIST_FILE = SoundSight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.blitzingeagle.SoundSight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SoundSight/CameraControl/SoundSight-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -656,6 +678,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
@@ -672,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
@@ -688,6 +712,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
 				INFOPLIST_FILE = SoundSightUITests/Info.plist;
@@ -703,6 +728,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
 				INFOPLIST_FILE = SoundSightUITests/Info.plist;
