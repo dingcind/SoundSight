@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54D97687DDF69E88A009CD31 /* libPods-SoundSightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */; };
+		5ABF192F8E02EE5E68BD70B6 /* libPods-SoundSightUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */; };
+		9B26D09362FED4234F6298D6 /* libPods-SoundSight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */; };
 		A5D2D0F52013926D0071C448 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D0F42013926D0071C448 /* AppDelegate.m */; };
 		A5D2D0F82013926D0071C448 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D0F72013926D0071C448 /* ViewController.m */; };
 		A5D2D0FB2013926D0071C448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D0F92013926D0071C448 /* Main.storyboard */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundSight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight.debug.xcconfig"; sourceTree = "<group>"; };
+		1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSight.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight.release.xcconfig"; sourceTree = "<group>"; };
+		518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundSightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SoundSightUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5D2D0F02013926D0071C448 /* SoundSight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundSight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D2D0F32013926D0071C448 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5D2D0F42013926D0071C448 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +60,9 @@
 		A5D2D1132013926D0071C448 /* SoundSightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundSightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D2D1172013926D0071C448 /* SoundSightUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundSightUITests.m; sourceTree = "<group>"; };
 		A5D2D1192013926E0071C448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.release.xcconfig"; sourceTree = "<group>"; };
+		CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B26D09362FED4234F6298D6 /* libPods-SoundSight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54D97687DDF69E88A009CD31 /* libPods-SoundSightTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ABF192F8E02EE5E68BD70B6 /* libPods-SoundSightUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52807A263AC62978E9F13AE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */,
+				518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */,
+				6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C7635D857094E7C2B7C7005 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */,
+				1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */,
+				ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */,
+				A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */,
+				7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */,
+				CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A5D2D0E72013926D0071C448 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +123,8 @@
 				A5D2D10B2013926D0071C448 /* SoundSightTests */,
 				A5D2D1162013926D0071C448 /* SoundSightUITests */,
 				A5D2D0F12013926D0071C448 /* Products */,
+				7C7635D857094E7C2B7C7005 /* Pods */,
+				52807A263AC62978E9F13AE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5D2D11C2013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSight" */;
 			buildPhases = (
+				D4FB7AE3297F1C35B17332C9 /* [CP] Check Pods Manifest.lock */,
 				A5D2D0EC2013926D0071C448 /* Sources */,
 				A5D2D0ED2013926D0071C448 /* Frameworks */,
 				A5D2D0EE2013926D0071C448 /* Resources */,
+				712CEA0BE24C482784476717 /* [CP] Embed Pods Frameworks */,
+				095A149D4346A0251135981B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5D2D11F2013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSightTests" */;
 			buildPhases = (
+				85CC02ADEF70D7114195BF1A /* [CP] Check Pods Manifest.lock */,
 				A5D2D1042013926D0071C448 /* Sources */,
 				A5D2D1052013926D0071C448 /* Frameworks */,
 				A5D2D1062013926D0071C448 /* Resources */,
+				2095028648D51644BCAE3005 /* [CP] Embed Pods Frameworks */,
+				AE6C5F0F5A1DC3E85CCB0955 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -174,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5D2D1222013926E0071C448 /* Build configuration list for PBXNativeTarget "SoundSightUITests" */;
 			buildPhases = (
+				A8CE8999316121CE3B8483BC /* [CP] Check Pods Manifest.lock */,
 				A5D2D10F2013926D0071C448 /* Sources */,
 				A5D2D1102013926D0071C448 /* Frameworks */,
 				A5D2D1112013926D0071C448 /* Resources */,
+				DC0742B3A4E0371E45BA0F49 /* [CP] Embed Pods Frameworks */,
+				0D2009AF53F4A74D71470437 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +308,153 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		095A149D4346A0251135981B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D2009AF53F4A74D71470437 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2095028648D51644BCAE3005 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		712CEA0BE24C482784476717 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSight/Pods-SoundSight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85CC02ADEF70D7114195BF1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundSightTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8CE8999316121CE3B8483BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundSightUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE6C5F0F5A1DC3E85CCB0955 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4FB7AE3297F1C35B17332C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundSight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC0742B3A4E0371E45BA0F49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5D2D0EC2013926D0071C448 /* Sources */ = {
@@ -428,6 +624,7 @@
 		};
 		A5D2D11D2013926E0071C448 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DE832459AF8DFDF8894D0DB /* Pods-SoundSight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +639,7 @@
 		};
 		A5D2D11E2013926E0071C448 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1030AFF33EC36A511E8E960B /* Pods-SoundSight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +654,7 @@
 		};
 		A5D2D1202013926E0071C448 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -471,6 +670,7 @@
 		};
 		A5D2D1212013926E0071C448 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +686,7 @@
 		};
 		A5D2D1232013926E0071C448 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7150E9955311B4388106BC0A /* Pods-SoundSightUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
@@ -500,6 +701,7 @@
 		};
 		A5D2D1242013926E0071C448 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JC5UA2XZJW;
