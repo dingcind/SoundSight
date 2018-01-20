@@ -1,4 +1,4 @@
-from bottle import route, run, request
+from bottle import route, run, request, static_file
 from pathlib2 import Path
 import time
 import os
@@ -19,6 +19,13 @@ os.chdir("..")
 net = load_net("cfg/yolo9000.cfg", "../yolo9000-weights/yolo9000.weights", 0)
 meta = load_meta("cfg/combine9k.data")
 #r = detect(net, meta, "data/dog.jpg")
+
+path = os.path.abspath(__file__)
+dir_path = os.path.dirname(path)
+
+@route('/img_for_api', method='GET')
+def img_for_api():
+    return static_file("img_for_api.jpg", root=dir_path)
 
 class Item:
 	def __init__(self, name, pos, size):
@@ -49,7 +56,7 @@ items_global = []
 def normalize(new_data):
 	global items_global
 	for each in new_data:
-		for item in items_global:
+		for item in items_gxlobal:
 			if abs(item.pos-each["pos"]) < 0.1 and abs(item.size-each["size"]) < 0.1:
 				item.move(each["pos"], each["size"])
 				break
@@ -91,4 +98,3 @@ def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
 run(host='0.0.0.0', port=80, debug=True, reloader=True)
-
