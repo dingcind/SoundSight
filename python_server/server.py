@@ -69,4 +69,4 @@ def main():
 def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
-run(host='localhost', port=8080, debug=True)
+run(host='0.0.0.0', port=80, debug=True, reloader=True)
