@@ -1,9 +1,19 @@
 from bottle import route, run, request
 from pathlib2 import Path
 import time
+import os
+from PIL import Image
+import math
 
-new_image_path = "/Users/2017-A/Dropbox/hackathon/SoundSight/python_server/test.txt"
-resulting_data_path = "/Users/2017-A/Dropbox/hackathon/SoundSight/python_server/result.txt"
+new_image_path = "img.png"
+resulting_data_path = "result.txt"
+
+os.chdir("../yolo-9000/darknet/python")
+from darknet import *
+os.chdir("..")
+net = load_net("cfg/yolo9000.cfg", "../yolo9000-weights/yolo9000.weights", 0)
+meta = load_meta("cfg/combine9k.data")
+#r = detect(net, meta, "data/dog.jpg")
 
 class Item:
 	def __init__(self, name, pos, size):
@@ -52,17 +62,34 @@ def main():
 	while new_image_file.is_file():
 		time.sleep(0.5)
 		print("Waiting for previous image to disappear")
-	new_image = open(new_image_path, "w")
-	new_image.write(request.data.read())
+	new_image = open(new_image_path, "wb")
+        img_data = request.data.read()
+	new_image.write(img_data.decode)
 	new_image.close()
+        r = detect(net, meta, new_image_path)
+        im = Image.open(new_image_path)
+        width, height = im.size
+        os.system("rm -rf " + new_image_path)
 
-	resulting_data_file = Path(resulting_data_path)
-	while not resulting_data_file.is_file():
-		time.sleep(0.5)
-		print("Waiting for new results to appear")
-	resulting_data = open(resulting_data_path).read()
-	resulting_data_string = resulting_data.read()
-	resulting_data.close()
+        size = []
+        pos = []
+        name = []
+
+        count = 0
+
+        for obj in r:
+                name[count] = obj[0]
+                pos = ((obj[2][0] + obj[2][2])/2/width, (obj[2][1] + obj[2][3])/2/height)
+                size = (math.fabs(obj[2][0] - obj[2][2]) * math.fabs(obj[2][1] - obj[2][3]))
+
+	#resulting_data_file = Path(resulting_data_path)
+	#while not resulting_data_file.is_file():
+	#	time.sleep(0.5)
+	#	print("Waiting for new results to appear")
+	#resulting_data = open(resulting_data_path).read()
+	#resulting_data_string = resulting_data.read()
+	#resulting_data.close()
+        
 	return {"data":resulting_data_string}  # NOTE: For security reasons, you CANNOT return a top level array. Send it as {"data":[array]}
 
 @route('/get_example')
