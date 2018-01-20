@@ -2,13 +2,17 @@ from bottle import route, run, request
 from pathlib2 import Path
 import time
 import os
-from PIL import Image
+#from PIL import Image
 import math
+import sys
+import cv2
 
 new_image_path = "img.png"
 resulting_data_path = "result.txt"
 
 os.chdir("../yolo-9000/darknet/python")
+sys.path.append(os.getcwd())
+time.sleep(0.1)
 from darknet import *
 
 os.chdir("..")
@@ -66,9 +70,10 @@ def main():
 	new_image.write(img_data.decode)
 	new_image.close()
 	r = detect(net, meta, new_image_path)
-	im = Image.open(new_image_path)
+	im = cv2.imread(new_image_path)
 	width, height = im.size
-	os.system("rm -rf " + new_image_path)
+        #im = cv2.rectangle(im, (), (), (255,0,0,), 7)
+	#os.system("rm -rf " + new_image_path)
 
 	objects = []
 	for obj in r:
@@ -76,6 +81,8 @@ def main():
 		pos = ((obj[2][0] + obj[2][2])/2/width, (obj[2][1] + obj[2][3])/2/height)
 		size = (math.fabs(obj[2][0] - obj[2][2]) * math.fabs(obj[2][1] - obj[2][3]))
 		objects.append({"name":name, "pos":pos, "size":size})
+                im = cv2.rectangle(im, (obj[2][0], obj[2][1]), (obj[2][2], obj[2][3]), (255, 0, 0), 7)
+        cv2.imwrite("test.png", im)
 	objects = normalize(objects)
 	return {"data": normalize(objects)}  # NOTE: For security reasons, you CANNOT return a top level array. Send it as {"data":[array]}
 
@@ -83,4 +90,5 @@ def main():
 def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
-#run(host='0.0.0.0', port=80, debug=True, reloader=True)
+run(host='0.0.0.0', port=80, debug=True, reloader=True)
+
