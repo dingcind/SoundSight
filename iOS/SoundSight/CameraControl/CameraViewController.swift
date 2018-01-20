@@ -8,7 +8,7 @@
 
 import Foundation
 
-import UIkit
+import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController{
@@ -41,7 +41,7 @@ class CameraViewController: UIViewController{
     }
 
     cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
+//    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
     cameraPreviewLayer?.frame = view.bounds
     cameraPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
 
