@@ -178,6 +178,39 @@ def train():
 		print("[Errno {0}] {1}".format(e.errno, e.strerror))
 
 
+def find_faces():
+	# Request headers.
+	headers = {
+		'Content-Type': 'application/json',
+		'Ocp-Apim-Subscription-Key': "0c723cbc14cf4d0abe07932a39484b0b",
+	}
+
+	# Request parameters.
+	params = urllib.urlencode({
+    'returnFaceId': 'true',
+    'returnFaceLandmarks': 'false',
+    'returnFaceAttributes': '',
+	})
+
+	body = '{"url": "http://34.214.105.118:8080/img_for_api"}'
+
+	try:
+		# Execute the REST API call and get the response.
+		conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+		conn.request("POST", "/face/v1.0/detect?%s" % params, body, headers)
+		response = conn.getresponse()
+		data = response.read()
+		# 'data' contains the JSON data. The following formats the JSON data for display.
+		parsed = json.loads(data)
+		print("Response:")
+		print(json.dumps(parsed, sort_keys=True, indent=2))
+		conn.close()
+	except Exception as e:
+		print(e)
+		print("[Errno {0}] {1}".format(e.errno, e.strerror))
+
+
+
 def test_img():
 	# Request headers.
 	headers = {
@@ -408,4 +441,4 @@ add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_2337
 print("Training")
 #train()
 #wait(100)
-test_img()
+find_faces()
