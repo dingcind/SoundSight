@@ -161,18 +161,12 @@ def train():
 		'personGroupId': 'uoft_hackathon_soundsight',
 	})
 
-	# The URL of a JPEG image to analyze.
-	from_file = open(img_path, "rb")
-	to_file = open("add_img.jpg", "wb")
-	to_file.write(from_file.read())
-	to_file.close()
-
 	body = '{"url": "34.214.105.118:8080/add_img"}'
 
 	try:
 		# Execute the REST API call and get the response.
 		conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
-		conn.request("POST", "/face/v1.0/persongroups/{personGroupId}/train?%s" % params, "{body}", headers)
+		conn.request("POST", "/face/v1.0/persongroups/{personGroupId}/train?%s" % params, "{}", headers)
 		response = conn.getresponse()
 		data = response.read()
 		# 'data' contains the JSON data. The following formats the JSON data for display.
@@ -373,7 +367,6 @@ time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204415.jpg')
 time.sleep(3)
 
-"""
 # Quin
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_222837.jpg')
 time.sleep(3)
@@ -410,6 +403,8 @@ time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_233710.jpg')
 time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_233713.jpg')
+
+"""
 
 print("Training")
 train()
