@@ -1,9 +1,24 @@
 from bottle import route, run, request
 from pathlib2 import Path
 import time
+import os
+#from PIL import Image
+import math
+import sys
+import cv2
 
-new_image_path = "/Users/2017-A/Dropbox/hackathon/SoundSight/python_server/test.txt"
-resulting_data_path = "/Users/2017-A/Dropbox/hackathon/SoundSight/python_server/result.txt"
+new_image_path = "img.png"
+resulting_data_path = "result.txt"
+
+os.chdir("../yolo-9000/darknet/python")
+sys.path.append(os.getcwd())
+time.sleep(0.1)
+from darknet import *
+
+os.chdir("..")
+net = load_net("cfg/yolo9000.cfg", "../yolo9000-weights/yolo9000.weights", 0)
+meta = load_meta("cfg/combine9k.data")
+#r = detect(net, meta, "data/dog.jpg")
 
 class Item:
 	def __init__(self, name, pos, size):
@@ -17,9 +32,9 @@ class Item:
 		self.pos = new_pos
 		self.size = new_size
 
-	def age(self):
+	def check_age(self):
 		self.age += 1
-		if self.age < 3:
+		if self.age < 5:
 			return self
 		else:
 			return None
@@ -28,19 +43,21 @@ class Item:
 		return {"name":self.name, "pos":self.pos, "size":self.size}
 
 
-items = []
+items_global = []
+
+
 def normalize(new_data):
-	global items
+	global items_global
 	for each in new_data:
-		for item in items:
+		for item in items_gxlobal:
 			if abs(item.pos-each["pos"]) < 0.1 and abs(item.size-each["size"]) < 0.1:
 				item.move(each["pos"], each["size"])
 				break
 		else:
-			items.append(Item(each["name"], each["pos"], each["size"]))
+			items_global.append(Item(each["name"], each["pos"], each["size"]))
 	live_items = []
-	for item in items:
-		live_items.append(item.age())
+	for item in items_global:
+		live_items.append(item.check_age())
 	while None in live_items:
 		live_items.remove(None)
 	return [x.to_dict() for x in live_items]
@@ -48,22 +65,26 @@ def normalize(new_data):
 
 @route('/main', method='POST')
 def main():
-	new_image_file = Path(new_image_path)
-	while new_image_file.is_file():
-		time.sleep(0.5)
-		print("Waiting for previous image to disappear")
-	new_image = open(new_image_path, "w")
-	new_image.write(request.data.read())
+	new_image = open(new_image_path, "wb")
+	img_data = request.data.read()
+	new_image.write(img_data.decode)
 	new_image.close()
+	r = detect(net, meta, new_image_path)
+	im = cv2.imread(new_image_path)
+	width, height = im.size
+        #im = cv2.rectangle(im, (), (), (255,0,0,), 7)
+	#os.system("rm -rf " + new_image_path)
 
-	resulting_data_file = Path(resulting_data_path)
-	while not resulting_data_file.is_file():
-		time.sleep(0.5)
-		print("Waiting for new results to appear")
-	resulting_data = open(resulting_data_path).read()
-	resulting_data_string = resulting_data.read()
-	resulting_data.close()
-	return {"data":resulting_data_string}  # NOTE: For security reasons, you CANNOT return a top level array. Send it as {"data":[array]}
+	objects = []
+	for obj in r:
+		name = obj[0]
+		pos = ((obj[2][0] + obj[2][2])/2/width, (obj[2][1] + obj[2][3])/2/height)
+		size = (math.fabs(obj[2][0] - obj[2][2]) * math.fabs(obj[2][1] - obj[2][3]))
+		objects.append({"name":name, "pos":pos, "size":size})
+                im = cv2.rectangle(im, (obj[2][0], obj[2][1]), (obj[2][2], obj[2][3]), (255, 0, 0), 7)
+        cv2.imwrite("test.png", im)
+	objects = normalize(objects)
+	return {"data": normalize(objects)}  # NOTE: For security reasons, you CANNOT return a top level array. Send it as {"data":[array]}
 
 @route('/get_example')
 def get_example():
