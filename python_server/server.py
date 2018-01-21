@@ -113,7 +113,7 @@ def main():
                 elif pos > 1:
                         pos = 1
                 #print(pos)
-                objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+                objects.append({"name":name, "pos":pos, "size":math.sqrt(size), "prob":obj[1]})
         cv2.imwrite("test.png", im)
         print("*********")
         print("Before Normalization")
