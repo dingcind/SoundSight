@@ -117,7 +117,7 @@ class CameraViewController: ViewController {
                     self.player!.rate = 2
                     if pos > 0 {pos = min(2*pos,1)}
                     else {pos = max(2*pos,-1)}
-                    self.player!.pan = -1
+                    self.player!.pan = pos
                     print(self.player!.pan)
                     self.player!.volume = 0.7*size+0.3
                     self.player!.play()
