@@ -222,7 +222,7 @@ def test_img():
 
 
 #create_group()
-add_person("Anna")
+#add_person("Anna")
 # Anna ID: c1d260e2-097f-409d-ac50-24042261612d
 # add_person("Cindy")
 # Cindy ID: 2918f938-b015-4804-a760-320dca7e5b58
@@ -257,7 +257,7 @@ time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_202002.jpg')
 time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_202039.jpg')
-"""
+
 
 
 # Cindy
@@ -297,15 +297,6 @@ add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201
 
 """
 # Morris
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204103.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204104.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204106.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204107.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204108.jpg')
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204110.jpg')
 time.sleep(3)
@@ -365,19 +356,11 @@ add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_20
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204336.jpg')
 time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204339.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204346.jpg')
-time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204349.jpg')
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204350.jpg')
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204351.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204353.jpg')
-time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204355.jpg')
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204358.jpg')
 time.sleep(3)
@@ -387,11 +370,10 @@ add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_20
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204405.jpg')
 time.sleep(3)
-add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204408.jpg')
-time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204415.jpg')
 time.sleep(3)
 
+"""
 # Quin
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_222837.jpg')
 time.sleep(3)
@@ -400,8 +382,6 @@ time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_222848.jpg')
 time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_222849.jpg')
-time.sleep(3)
-add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_222850.jpg')
 time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_222852.jpg')
 time.sleep(3)
