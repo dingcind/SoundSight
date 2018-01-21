@@ -99,7 +99,7 @@ def main():
 	print(people)
 	objects = []
 	for each in people.keys():
-		objects.append({"name":each, "pos":people[each]["pos"]/width, "size":people[each]["size"]/width})
+		objects.append({"name":each, "pos":people[each]["pos"]/width_max, "size":people[each]["size"]/width_max})
 	for obj in r:
 		width = int(obj[2][2]/2)
 		height = int(obj[2][3]/2)
