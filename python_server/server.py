@@ -95,8 +95,11 @@ def main():
 	#im = cv2.rectangle(im, (), (), (255,0,0,), 7)
 	#os.system("rm -rf " + new_image_path)
 	print(r)
-	print(test_img())
+	people = test_img()
+	print(people)
 	objects = []
+	for each in people.keys():
+		objects.append({"name":each, "pos":people[each]["pos"]/width, "size":people[each]["size"]/width})
 	for obj in r:
 		width = int(obj[2][2]/2)
 		height = int(obj[2][3]/2)

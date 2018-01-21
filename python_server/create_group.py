@@ -217,7 +217,7 @@ def find_faces():
 
 
 def test_img():
-	names = {"c1d260e2-097f-409d-ac50-24042261612d":"Anna", "2918f938-b015-4804-a760-320dca7e5b58":"Cindy", "31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33":"Morris", "2aa02459-64b1-43b6-b733-e078200890ce":"Quin"}
+	names = {"46785984-904d-4b78-985b-c789b9f959b1":"Anna", "2918f938-b015-4804-a760-320dca7e5b58":"Cindy", "31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33":"Morris", "2aa02459-64b1-43b6-b733-e078200890ce":"Quin"}
 
 	headers = {
 		'Content-Type': 'application/json',
