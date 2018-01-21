@@ -98,6 +98,7 @@ def main():
 	people = test_img()
 	print(people)
 	objects = []
+	print(max_width)
 	for each in people.keys():
 		objects.append({"name":people[each]["name"], "pos":math.sqrt(abs(people[each]["pos"]-width_max/2)/width_max)*abs(people[each]["pos"]-width_max/2)/(people[each]["pos"]-width_max/2), "size":1.0*people[each]["size"]/width_max, "prob":1})
 	for obj in r:
