@@ -71,7 +71,14 @@ def normalize(new_data, theta):
 		live_items.append(item.check_age())
 	while None in live_items:
 		live_items.remove(None)
-	return [x.to_dict() for x in live_items]
+	a = [x.to_dict() for x in live_items]
+	unique_names = []
+	unique_objects = []
+	for each in a:
+		if each["name"] not in unique_names:
+			unique_names.append(each["name"])
+			unique_objects.append(each)
+	return unique_objects
 
 poll_on_3 = 0
 previous_people = {}
@@ -109,7 +116,7 @@ def main():
 	objects = []
 	print(max_width)
 	for each in people.keys():
-		objects.append({"name":people[each]["name"], "pos":math.sqrt(abs(people[each]["pos"]-width_max/2)/width_max)*abs(people[each]["pos"]-width_max/2)/(people[each]["pos"]-width_max/2), "size":1.0*people[each]["size"]/width_max, "prob":1})
+		objects.append({"name":people[each]["name"], "pos":-1*math.sqrt(abs(people[each]["pos"]-width_max/2)/width_max)*abs(people[each]["pos"]-width_max/2)/(people[each]["pos"]-width_max/2), "size":1.0*people[each]["size"]/width_max, "prob":1})
 	for obj in r:
 		width = int(obj[2][2]/2)
 		height = int(obj[2][3]/2)
