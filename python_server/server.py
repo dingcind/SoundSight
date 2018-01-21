@@ -38,7 +38,7 @@ class Item:
 
 	def check_age(self):
 		self.age += 1
-		if self.age < 5:
+		if self.age < 3:
 			return self
 		else:
 			return None
@@ -48,9 +48,15 @@ class Item:
 
 
 items_global = []
+        
+def normalize(new_data, theta):
+        new_data = sorted(new_data, key=lambda k: k["prob"])
 
-def normalize(new_data):
-	new_data = sorted(new_data, key=lambda k: k["prob"])
+        for item in items_global:
+                angle = math.acos(item.pos)
+                angle += theta
+                item.pos = math.cos(angle)
+        
 	global items_global
 	for each in new_data:
 		for item in items_global:
@@ -73,11 +79,20 @@ def main():
 	#print(request.body.read())
 	#print(dir(request.body.read()))
 	img_data = request.body.read()
+<<<<<<< HEAD
+        img_data = img_data.decode()
+        i = StringIO(img_data)
+        dit = json.load(i)
+        text = dit["img"]
+        theta = dit["theta"]
+        text = text.encode("ascii")
+=======
 	img_data = img_data.decode()
 	i = StringIO(img_data)
 	dit = json.load(i)
 	text = dit["img"]
 	text = text.encode("ascii")
+>>>>>>> ea6f8a79044d75ab87cc12acd62c832af508905c
 	new_image.write(base64.decodestring(text))
 	new_image.close()
 	r = detect(net, meta, new_image_path)
@@ -94,6 +109,28 @@ def main():
 		x = int(obj[2][0])
 		y = int(obj[2][1])
 		name = obj[0]
+<<<<<<< HEAD
+		#pos = x
+		size = float(width*height) / float(width_max * height_max) 
+		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+
+                im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
+                pos = float(x)/float(width) - 0.5
+
+                if pos < -1:
+                        pos = -1
+                elif pos > 1:
+                        pos = 1
+                print(pos)
+                objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+        cv2.imwrite("test.png", im)
+        print("*********")
+        print("Before Normalization")
+	objects = normalize(objects, theta)
+        print("After Normalization")
+        print(objects)
+        print("************\n**************")
+=======
 		pos = x
 		size = float(width*height) / float(width_max * height_max)
 		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
@@ -107,6 +144,7 @@ def main():
 	print("After Normalization")
 	print(objects)
 	print("************\n**************")
+>>>>>>> ea6f8a79044d75ab87cc12acd62c832af508905c
 	return {"data": objects}  # NOTE: For security reasons, you CANNOT return a top level array. Send it as {"data":[array]}
 
 @route('/get_example')
