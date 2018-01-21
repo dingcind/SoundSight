@@ -3,9 +3,5 @@
 import PackageDescription
 
 let package = Package(
-    name: "SSCommonCrypto",
-    dependencies: [
-        .Package(url: "https://github.com/watson-developer-cloud/swift-sdk", majorVersion: 0)
-    ]
+    name: "SSCommonCrypto"
 )
-

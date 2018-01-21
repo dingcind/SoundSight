@@ -11,7 +11,7 @@
 #import "ViewController.h"
 
 @interface ViewController () {
-    AVAudioPlayer *_audioPlayer;
+//    AVAudioPlayer *_audioPlayer;
 }
 @end
 
@@ -21,12 +21,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    // Construct URL to sound file
-    NSString *path = [NSString stringWithFormat:@"%@/cena.mp3", [[NSBundle mainBundle] resourcePath]];
-    NSURL *soundUrl = [NSURL fileURLWithPath:path];
-    
-    // Create audio player object and initialize with URL to sound
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+//    // Construct URL to sound file
+//    NSString *path = [NSString stringWithFormat:@"%@/cena.mp3", [[NSBundle mainBundle] resourcePath]];
+//    NSURL *soundUrl = [NSURL fileURLWithPath:path];
+//    
+//    // Create audio player object and initialize with URL to sound
+//    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
 }
 
 
@@ -39,12 +39,12 @@
     return YES;
 }
 
-- (void) playWithPan:(CGFloat)pan {
-    [_audioPlayer stop];
-    [_audioPlayer setPan:pan];
-    [_audioPlayer prepareToPlay];
-    _audioPlayer.currentTime = 0;
-    [_audioPlayer play];
-}
+//- (void) playWithPan:(CGFloat)pan {
+//    [_audioPlayer stop];
+//    [_audioPlayer setPan:pan];
+//    [_audioPlayer prepareToPlay];
+//    _audioPlayer.currentTime = 0;
+//    [_audioPlayer play];
+//}
 
 @end
