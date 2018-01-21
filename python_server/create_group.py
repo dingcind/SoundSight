@@ -205,7 +205,7 @@ def find_faces():
 		parsed = json.loads(data)
 		conn.close()
 		print("Find faces result:")
-        print(parsed)
+                print(parsed)
 		got_data = {}
 		for each in parsed:
 			got_data[each["faceId"]] = {"pos":each["faceRectangle"]["left"]+each["faceRectangle"]["width"]/2, "size":each["faceRectangle"]["width"], "name":"unknown person"}
