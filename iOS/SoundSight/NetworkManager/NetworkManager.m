@@ -43,6 +43,37 @@
     return res;
 }
 
++ (NSDictionary *) getDataFrom:(NSString *)url postData:(NSDictionary*)temp {
+    
+    NSError *error = [[NSError alloc] init];
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:temp options:0 error:&error];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+    
+    if([responseCode statusCode] != 200){
+        NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"No connection", @"Callback", nil];
+        
+        return dict;
+    }
+    //    //nslog([[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding]);
+    //    NSError *jsonError = nil;
+    
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableLeaves || NSJSONReadingMutableContainers error:nil];
+    
+    //    [NSString stringWithFormat:@"%d", (int)[responseCode statusCode]]
+    //    add key to dictionary
+    
+    //    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&jsonError];
+    
+    return res;
+}
+
 + (NSDictionary*) getDataFrom:(NSString*)url {
     //nslog(@"whyyyy");
     NSMutableDictionary *temp = [[NSMutableDictionary alloc]init];

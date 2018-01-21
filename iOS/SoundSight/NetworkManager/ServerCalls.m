@@ -25,4 +25,10 @@
     return data;
 }
 
++ (NSDictionary*) voiceOutput:(NSString*)str {
+    
+    
+    return nil;
+}
+
 @end
