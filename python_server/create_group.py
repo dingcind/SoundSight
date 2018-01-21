@@ -229,6 +229,8 @@ def test_img():
 	})
 
 	all_faces = find_faces()
+    if all_faces == {}:
+        return {}
 
 	body = '{"personGroupId": "uoft_hackathon_soundsight","faceIds": [\"' + '\",\"'.join(all_faces.keys()) + '\"]}'
 
