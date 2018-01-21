@@ -215,7 +215,7 @@ def find_faces():
 		return {}
 
 
-def test_img(face_ids):
+def test_img():
 	names = {"c1d260e2-097f-409d-ac50-24042261612d":"Anna", "2918f938-b015-4804-a760-320dca7e5b58":"Cindy", "31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33":"Morris", "2aa02459-64b1-43b6-b733-e078200890ce":"Quin"}
 
 	headers = {
@@ -440,5 +440,5 @@ add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_2337
 time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_233713.jpg')
 """
-
-test_img(["83d9f8ca-32ab-4f9d-932d-09b2542cf6c6"])
+# "83d9f8ca-32ab-4f9d-932d-09b2542cf6c6"
+test_img()
