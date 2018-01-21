@@ -122,7 +122,7 @@ def add_image(person_id, img_path):
 	# Request parameters.
 	params = urllib.urlencode({
 		'personGroupId': 'uoft_hackathon_soundsight',
-		'person_id': person_id
+		'personId': person_id
 	})
 
 	# The URL of a JPEG image to analyze.
@@ -131,7 +131,7 @@ def add_image(person_id, img_path):
 	to_file.write(from_file.read())
 	to_file.close()
 
-	body = '{"url": "34.214.105.118:8080/add_img"}'
+	body = '{"url": "http://34.214.105.118:8080/add_img"}'
 
 	try:
 		# Execute the REST API call and get the response.
@@ -221,7 +221,7 @@ def test_img():
 
 
 #create_group()
-# add_person("Anna")
+add_person("Anna")
 # Anna ID: c1d260e2-097f-409d-ac50-24042261612d
 # add_person("Cindy")
 # Cindy ID: 2918f938-b015-4804-a760-320dca7e5b58
@@ -231,7 +231,7 @@ def test_img():
 # Quin ID: 2aa02459-64b1-43b6-b733-e078200890ce
 
 #Anna
-add_image('c1d260e2-097f-409d-ac50-24042261612d', 'photos/anna/IMG_20180120_201754.jpg')
+add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_201754.jpg')
 """
 add_image('c1d260e2-097f-409d-ac50-24042261612d', 'photos/anna/IMG_20180120_201756.jpg')
 add_image('c1d260e2-097f-409d-ac50-24042261612d', 'photos/anna/IMG_20180120_201759.jpg')
