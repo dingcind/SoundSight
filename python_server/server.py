@@ -9,8 +9,6 @@ import cv2
 import base64
 from io import StringIO
 import json
-from 
-
 new_image_path = "img.jpg"
 resulting_data_path = "result.txt"
 
