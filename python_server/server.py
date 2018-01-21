@@ -94,8 +94,11 @@ def main():
 		name = obj[0]
 		pos = (x,y)
 		size = width*height / (width_max * height_max) 
-		objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+
                 im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
+                pos = (float(x)/float(width) - 0.5, float(y)/float(height) - 0.5)
+                objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
         cv2.imwrite("test.png", im)
         print("*********")
         print("Before Normalization")
