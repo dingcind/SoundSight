@@ -192,7 +192,7 @@ def find_faces():
     'returnFaceAttributes': '',
 	})
 
-	body = '{"url": "http://localhost:8080/img_for_api/' + str(int(time.time())) + '"}'
+	body = '{"url": "http://34.214.105.118:8080/img_for_api/' + str(int(time.time())) + '"}'
 	print(body)
 
 	try:
