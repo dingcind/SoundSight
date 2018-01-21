@@ -48,9 +48,9 @@ class Item:
 
 
 items_global = []
-        
+
 def normalize(new_data):
-        new_data = sorted(new_data, key=lambda k: k["prob"])
+	new_data = sorted(new_data, key=lambda k: k["prob"])
 	global items_global
 	for each in new_data:
 		for item in items_global:
@@ -70,44 +70,43 @@ def normalize(new_data):
 @route('/main', method='POST')
 def main():
 	new_image = open(new_image_path, "wb")
-        #print(request.body.read())
-        #print(dir(request.body.read()))
+	#print(request.body.read())
+	#print(dir(request.body.read()))
 	img_data = request.body.read()
-        img_data = img_data.decode()
-        i = StringIO(img_data)
-        dit = json.load(i)
-        text = dit["img"]
-        text = text.encode("ascii")
+	img_data = img_data.decode()
+	i = StringIO(img_data)
+	dit = json.load(i)
+	text = dit["img"]
+	text = text.encode("ascii")
 	new_image.write(base64.decodestring(text))
 	new_image.close()
 	r = detect(net, meta, new_image_path)
 	im = cv2.imread(new_image_path)
-        #print(im.shape)
+		#print(im.shape)
 	width_max, height_max = im.shape[0:2]
-        #im = cv2.rectangle(im, (), (), (255,0,0,), 7)
+	#im = cv2.rectangle(im, (), (), (255,0,0,), 7)
 	#os.system("rm -rf " + new_image_path)
-        print(r)
+	print(r)
 	objects = []
 	for obj in r:
-                width = int(obj[2][2]/2)
-                height = int(obj[2][3]/2)
-                x = int(obj[2][0])
-                y = int(obj[2][1])
+		width = int(obj[2][2]/2)
+		height = int(obj[2][3]/2)
+		x = int(obj[2][0])
+		y = int(obj[2][1])
 		name = obj[0]
 		pos = x
-		size = float(width*height) / float(width_max * height_max) 
+		size = float(width*height) / float(width_max * height_max)
 		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
-
-                im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
-                pos = float(x)/float(width) - 0.5
-                objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
-        cv2.imwrite("test.png", im)
-        print("*********")
-        print("Before Normalization")
+		im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
+		pos = float(x)/float(width) - 0.5
+		objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+	cv2.imwrite("test.png", im)
+	print("*********")
+	print("Before Normalization")
 	objects = normalize(objects)
-        print("After Normalization")
-        print(objects)
-        print("************\n**************")
+	print("After Normalization")
+	print(objects)
+	print("************\n**************")
 	return {"data": objects}  # NOTE: For security reasons, you CANNOT return a top level array. Send it as {"data":[array]}
 
 @route('/get_example')
