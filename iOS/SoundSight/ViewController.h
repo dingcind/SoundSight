@@ -12,6 +12,7 @@
 
 @interface ViewController : UIViewController
 
+- (void) playWithPan:(CGFloat)pan;
 
 @end
 
