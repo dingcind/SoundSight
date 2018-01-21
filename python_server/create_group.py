@@ -295,7 +295,7 @@ add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201
 time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201739.jpg')
 
-"""
+
 # Morris
 time.sleep(3)
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204110.jpg')
@@ -411,7 +411,7 @@ add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_2337
 time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_233713.jpg')
 
+print("Training")
 train()
-
+wait(100)
 test_img()
-"""
