@@ -11,7 +11,7 @@
 
 @interface ServerCalls: NSObject
 
-+ (NSDictionary*) identifyImage:(NSString*)img;
++ (NSDictionary*) identifyImage:(NSString*)img angle:(CGFloat)theta;
 + (NSDictionary*) voiceOutput:(NSString*)str;
 
 @end
