@@ -23,14 +23,12 @@ class CameraViewController: ViewController {
     super.viewDidLoad()
     initializeCaptureSession()
     
-    Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: {
+    Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: {
         (timer) in
         if(self.ready) {
             self.takePicture()
         }
     })
-    
-    makeSound()
     // additional setup
   }
 
@@ -41,16 +39,17 @@ class CameraViewController: ViewController {
     ready = false
     let callback = ServerCalls.identifyImage(strBase64) as NSDictionary
     ready = true
-//    makeSound(data: callback)
+    makeSound(data: callback)
   }
     
-    func makeSound(){//data: NSDictionary) {
+    func makeSound(data: NSDictionary) {
         // TODO: Sound off
-        let tts = TextToSpeech.init()
+        
+        super.play(withPan: 0.1);
     }
 
   func initializeCaptureSession(){
-    session.sessionPreset = AVCaptureSessionPresetLow
+    session.sessionPreset = AVCaptureSessionPresetMedium
     camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
 
     do{
@@ -77,8 +76,6 @@ class CameraViewController: ViewController {
   }
 
   func takePicture() {
-    print("FUCK YOU")
-    
     let settings = AVCapturePhotoSettings()
     settings.flashMode = .off //if this fails check camera settings for flash off
 

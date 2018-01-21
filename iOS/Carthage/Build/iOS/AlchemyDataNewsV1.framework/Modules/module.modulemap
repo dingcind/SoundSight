@@ -1,0 +1,4 @@
+framework module AlchemyDataNewsV1 {
+    header "AlchemyDataNewsV1-Swift.h"
+    requires objc
+}

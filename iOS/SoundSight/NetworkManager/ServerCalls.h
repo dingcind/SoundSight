@@ -12,6 +12,7 @@
 @interface ServerCalls: NSObject
 
 + (NSDictionary*) identifyImage:(NSString*)img;
++ (NSDictionary*) voiceOutput:(NSString*)str;
 
 @end
 

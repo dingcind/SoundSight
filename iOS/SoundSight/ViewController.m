@@ -22,13 +22,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Construct URL to sound file
-    NSString *path = [NSString stringWithFormat:@"%@/sample.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSString *path = [NSString stringWithFormat:@"%@/cena.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
     
     // Create audio player object and initialize with URL to sound
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
-    
-    [self playWithPan:1.0f];
 }
 
 
@@ -42,7 +40,10 @@
 }
 
 - (void) playWithPan:(CGFloat)pan {
+    [_audioPlayer stop];
     [_audioPlayer setPan:pan];
+    [_audioPlayer prepareToPlay];
+    _audioPlayer.currentTime = 0;
     [_audioPlayer play];
 }
 

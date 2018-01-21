@@ -47,10 +47,8 @@ class Item:
 		return {"name":self.name, "pos":self.pos, "size":self.size}
 
 
-items_global = []
-
-
 def normalize(new_data):
+        new_data = sorted(new_data, key=lambda k: k["prob"])
 	global items_global
 	for each in new_data:
 		for item in items_global:
@@ -83,17 +81,21 @@ def main():
 	r = detect(net, meta, new_image_path)
 	im = cv2.imread(new_image_path)
         #print(im.shape)
-	width, height = im.shape[0:2]
+	width_max, height_max = im.shape[0:2]
         #im = cv2.rectangle(im, (), (), (255,0,0,), 7)
 	#os.system("rm -rf " + new_image_path)
         print(r)
 	objects = []
 	for obj in r:
+                width = int(obj[2][2]/2)
+                height = int(obj[2][3]/2)
+                x = int(obj[2][0])
+                y = int(obj[2][1])
 		name = obj[0]
-		pos = ((obj[2][0] + obj[2][2])/2/width, (obj[2][1] + obj[2][3])/2/height)
-		size = (math.fabs(obj[2][0] - obj[2][2]) * math.fabs(obj[2][1] - obj[2][3]))
-		objects.append({"name":name, "pos":pos, "size":size})
-                im = cv2.rectangle(im, (obj[2][0], obj[2][1]), (obj[2][2], obj[2][3]), (255, 0, 0), 7)
+		pos = (x,y)
+		size = width*height / (width_max * height_max) 
+		objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+                im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
         cv2.imwrite("test.png", im)
         print("*********")
         print("Before Normalization")
