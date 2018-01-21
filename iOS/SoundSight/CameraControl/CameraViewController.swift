@@ -19,6 +19,7 @@ class CameraViewController: ViewController {
     var cameraPreviewLayer : AVCaptureVideoPreviewLayer?
     var cameraCaptureOutput : AVCapturePhotoOutput?
     var ready = true;
+    var scene : LockScreenScene?
     
     var textToSpeech: TextToSpeech!
     var player: AVAudioPlayer?
@@ -27,7 +28,7 @@ class CameraViewController: ViewController {
         super.viewDidLoad()
         initializeCaptureSession()
         
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: {
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true, block: { //was 5
             (timer) in
             if(self.ready) {
                 self.takePicture()
@@ -44,6 +45,7 @@ class CameraViewController: ViewController {
         if let view = self.view as! SKView? {
             // Load the SKScene from 'LockScreenScene.sks'
             if let scene = SKScene(fileNamed:"LockScreenScene") {
+                self.scene = scene as! LockScreenScene
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
@@ -75,31 +77,56 @@ class CameraViewController: ViewController {
     
     func makeSound(data: NSDictionary) {
         // TODO: Sound off
-        print("FUCK YOU")
         
         textToSpeech = TextToSpeech(
             username: "82fd2c0c-c897-4d91-af44-2d97e4fa3e5c",
             password: "Zep7qdsmC7yP"
         )
         
-        let text = "Make America Great Again";
-        let voice = "en-US_AllisonVoice";
+        if(data.object(forKey: "data") == nil) {
+            return
+        }
         
-        let failure = { (error: Error) in print(error) }
-        textToSpeech.synthesize(
-            text,
-            voice: voice,
-            audioFormat: .wav,
-            failure: failure)
-        {
-            data in
-            do {
-                self.player = try AVAudioPlayer(data: data)
-                self.player!.pan = -0.7;
-                self.player!.volume = 1;
-                self.player!.play()
-            } catch {
-                print("Failed to create audio player.")
+        let arr = data.object(forKey: "data") as! NSArray
+        
+        for item in arr {
+            let dict = item as! NSDictionary
+            print(dict)
+            let name = dict.object(forKey: "name") as! String
+            
+            self.scene?.setLabel(text: name);
+            
+            print(name)
+            var pos = dict.object(forKey: "pos") as! Float
+            //print(pos)
+            let size = dict.object(forKey: "size") as! Float
+            //print(size)
+            
+            let voice = "en-US_AllisonVoice";
+            
+            let failure = { (error: Error) in print(error) }
+            textToSpeech.synthesize(
+                name,
+                voice: voice,
+                audioFormat: .wav,
+                failure: failure)
+            {
+                data in
+                do {
+                    self.player = try AVAudioPlayer(data: data)
+                    self.player!.rate = 2
+                    if pos > 0 {pos = min(2*pos,1)}
+                    else {pos = max(2*pos,-1)}
+                    self.player!.pan = -1
+                    print(self.player!.pan)
+                    self.player!.volume = 0.7*size+0.3
+                    self.player!.play()
+                    while(self.player!.isPlaying){
+                    }
+                    
+                } catch {
+                    print("Failed to create audio player.")
+                }
             }
         }
         

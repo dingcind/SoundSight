@@ -37,11 +37,15 @@ class LockScreenScene: SKScene {
         }
     }
     
+    func setLabel(text: String) {
+        self.label?.text = text;
+    }
+    
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
-            n.strokeColor = SKColor.green
+            n.strokeColor = SKColor.white
             self.addChild(n)
         }
     }
@@ -49,7 +53,7 @@ class LockScreenScene: SKScene {
     func touchMoved(toPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
-            n.strokeColor = SKColor.blue
+            n.strokeColor = SKColor.white
             self.addChild(n)
         }
     }
@@ -57,7 +61,7 @@ class LockScreenScene: SKScene {
     func touchUp(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
-            n.strokeColor = SKColor.red
+            n.strokeColor = SKColor.white
             self.addChild(n)
         }
     }
