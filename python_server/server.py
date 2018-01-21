@@ -114,9 +114,14 @@ def main():
 	poll_on_3 = poll_on_3/3
 	print(people)
 	objects = []
-	print(max_width)
+	print(width_max)
 	for each in people.keys():
-		objects.append({"name":people[each]["name"], "pos":-1*math.sqrt(abs(people[each]["pos"]-width_max/2)/width_max)*abs(people[each]["pos"]-width_max/2)/(people[each]["pos"]-width_max/2), "size":1.0*people[each]["size"]/width_max, "prob":1})
+                temp_val = people[each]["pos"]-width_max/2
+                if temp_val > 0:
+                        temp_val = math.sqrt(temp_val*1.0/width_max)
+                else:
+                        temp_val = -math.sqrt(-temp_val*1.0/width_max)
+		objects.append({"name":people[each]["name"], "pos":temp_val, "size":1.0*people[each]["size"]/width_max, "prob":1})
 	for obj in r:
 		width = int(obj[2][2]/2)
 		height = int(obj[2][3]/2)
