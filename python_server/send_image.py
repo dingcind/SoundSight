@@ -7,8 +7,8 @@ path = os.path.abspath(__file__)
 dir_path = os.path.dirname(path)
 
 
-@route('/img_for_api', method='GET')
-def img_for_api():
+@route('/img_for_api/<random_number>', method='GET')
+def img_for_api(random_number=0):
     return static_file("img_for_api.jpg", root=dir_path)
 
 

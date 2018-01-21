@@ -192,7 +192,8 @@ def find_faces():
     'returnFaceAttributes': '',
 	})
 
-	body = '{"url": "http://34.214.105.118:8080/img_for_api"}'
+	body = '{"url": "http://localhost:8080/img_for_api/' + str(int(time.time())) + '"}'
+	print(body)
 
 	try:
 		# Execute the REST API call and get the response.
