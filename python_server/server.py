@@ -9,13 +9,9 @@ import cv2
 import base64
 from io import StringIO
 import json
-<<<<<<< HEAD
-new_image_path = "img.jpg"
-=======
 from create_group import test_img
 
 new_image_path = "img_for_api.jpg"
->>>>>>> f8d6cdf8979d3c86d0b4fc3d384cf10268cfb37f
 resulting_data_path = "result.txt"
 
 os.chdir("../yolo-9000/darknet/python")
