@@ -9,8 +9,17 @@ import cv2
 import base64
 from io import StringIO
 import json
+from create_group import test_img
+from watson_developer_cloud import *
+import ast
+from operator import itemgetter
 
-new_image_path = "img.jpg"
+cutoff_score = 0.6
+entries_to_keep = 3
+visual_recognition = VisualRecognitionV3('2016-05-20', api_key='d6e7b0377be949ca1ea2109cd494c97c5415f2b6')
+
+
+new_image_path = "img_for_api.jpg"
 resulting_data_path = "result.txt"
 
 os.chdir("../yolo-9000/darknet/python")
@@ -25,11 +34,11 @@ meta = load_meta("cfg/combine9k.data")
 os.chdir("../../python_server")
 
 class Item:
-	def __init__(self, name, pos, size):
+	def __init__(self, name, pos, size, init_age=0):
 		self.name = name
 		self.pos = pos
 		self.size = size
-		self.age = 0
+		self.age = init_age
 
 	def move(self, new_pos, new_size):
 		self.age = -1
@@ -38,7 +47,7 @@ class Item:
 
 	def check_age(self):
 		self.age += 1
-		if self.age < 5:
+		if self.age < 3:
 			return self
 		else:
 			return None
@@ -47,8 +56,20 @@ class Item:
 		return {"name":self.name, "pos":self.pos, "size":self.size}
 
 
-def normalize(new_data):
+items_global = []
+
+def normalize(new_data, theta, top):
+        for each in new_data:
+                if each["name"] in top:
+                        each["prob"] = 1.0
+
         new_data = sorted(new_data, key=lambda k: k["prob"])
+        
+        for item in items_global:
+                angle = 2*math.acos(item.pos)
+                angle += theta
+                item.pos = math.cos(0.5*angle)
+
 	global items_global
 	for each in new_data:
 		for item in items_global:
@@ -62,44 +83,87 @@ def normalize(new_data):
 		live_items.append(item.check_age())
 	while None in live_items:
 		live_items.remove(None)
-	return [x.to_dict() for x in live_items]
+	a = [x.to_dict() for x in live_items]
+	unique_names = []
+	unique_objects = []
+	for each in a:
+		if each["name"] not in unique_names:
+			unique_names.append(each["name"])
+			unique_objects.append(each)
+	return unique_objects
 
+poll_on_3 = 0
+previous_people = {}
 
 @route('/main', method='POST')
 def main():
 	new_image = open(new_image_path, "wb")
-        #print(request.body.read())
-        #print(dir(request.body.read()))
+	#print(request.body.read())
+	#print(dir(request.body.read()))
 	img_data = request.body.read()
         img_data = img_data.decode()
         i = StringIO(img_data)
         dit = json.load(i)
         text = dit["img"]
+        theta = dit["theta"]
         text = text.encode("ascii")
 	new_image.write(base64.decodestring(text))
 	new_image.close()
 	r = detect(net, meta, new_image_path)
 	im = cv2.imread(new_image_path)
-        #print(im.shape)
+
+        response = json.dumps(visual_recognition.classify(images_file=open(new_image_path, 'rb')), indent=2)
+
+        array = ast.literal_eval(response).get('images', 0)[0].get('classifiers', 1)[0].get('classes', 2)
+        ordered = sorted(array, key=itemgetter('score'), reverse = True)
+        filtered = [it for it in ordered if it['score'] > cutoff_score]
+
+        top = filtered[:entries_to_keep]
+        
+		#print(im.shape)
 	width_max, height_max = im.shape[0:2]
-        #im = cv2.rectangle(im, (), (), (255,0,0,), 7)
+	#im = cv2.rectangle(im, (), (), (255,0,0,), 7)
 	#os.system("rm -rf " + new_image_path)
-        print(r)
+	print(r)
+	global poll_on_3
+	global previous_people
+	if poll_on_3%3 == 0:
+		people = test_img()
+		previous_people = people
+	else:
+		people = previous_people
+	poll_on_3 = poll_on_3/3
+	print(people)
 	objects = []
+	print(width_max)
+	for each in people.keys():
+                temp_val = people[each]["pos"]-width_max/2
+                if temp_val > 0:
+                        temp_val = math.sqrt(temp_val*1.0/width_max)
+                else:
+                        temp_val = -math.sqrt(-temp_val*1.0/width_max)
+		objects.append({"name":people[each]["name"], "pos":temp_val, "size":1.0*people[each]["size"]/width_max, "prob":1})
 	for obj in r:
-                width = int(obj[2][2]/2)
-                height = int(obj[2][3]/2)
-                x = int(obj[2][0])
-                y = int(obj[2][1])
+		width = int(obj[2][2]/2)
+		height = int(obj[2][3]/2)
+		x = int(obj[2][0])
+		y = int(obj[2][1])
 		name = obj[0]
-		pos = (x,y)
-		size = width*height / (width_max * height_max) 
-		objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
+		#pos = x
+		size = float(width*height) / float(width_max * height_max)
+		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
                 im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
+                pos = float(x)/float(width_max) - 0.5
+                if pos < -1:
+                        pos = -1
+                elif pos > 1:
+                        pos = 1
+                #print(pos)
+                objects.append({"name":name, "pos":pos, "size":math.sqrt(size), "prob":obj[1]})
         cv2.imwrite("test.png", im)
         print("*********")
         print("Before Normalization")
-	objects = normalize(objects)
+	objects = normalize(objects, theta, top)
         print("After Normalization")
         print(objects)
         print("************\n**************")
@@ -110,4 +174,3 @@ def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
 run(host='0.0.0.0', port=80, debug=True, reloader=True)
-
