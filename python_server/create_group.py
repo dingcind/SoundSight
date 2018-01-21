@@ -188,7 +188,7 @@ def find_faces():
 	# Request parameters.
 	params = urllib.urlencode({
     'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
+    'returnFaceLandmarks': 'true',
     'returnFaceAttributes': '',
 	})
 
@@ -202,17 +202,22 @@ def find_faces():
 		data = response.read()
 		# 'data' contains the JSON data. The following formats the JSON data for display.
 		parsed = json.loads(data)
-		print("Response:")
-		print(json.dumps(parsed, sort_keys=True, indent=2))
 		conn.close()
+		print("Find faces result:")
+		got_data = {}
+		for each in parsed:
+			got_data[each["faceId"]] = {"pos":each["faceRectangle"]["left"]+each["faceRectangle"]["width"]/2, "size":each["faceRectangle"]["width"], "name":"unknown person"}
+		print(got_data)
+		return got_data
 	except Exception as e:
 		print(e)
 		print("[Errno {0}] {1}".format(e.errno, e.strerror))
+		return {}
 
 
+def test_img(face_ids):
+	names = {"c1d260e2-097f-409d-ac50-24042261612d":"Anna", "2918f938-b015-4804-a760-320dca7e5b58":"Cindy", "31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33":"Morris", "2aa02459-64b1-43b6-b733-e078200890ce":"Quin"}
 
-def test_img():
-	# Request headers.
 	headers = {
 		'Content-Type': 'application/json',
 		'Ocp-Apim-Subscription-Key': "0c723cbc14cf4d0abe07932a39484b0b",
@@ -220,16 +225,11 @@ def test_img():
 
 	# Request parameters.
 	params = urllib.urlencode({
-    "personGroupId":"uoft_hackathon_soundsight",
-    "faceIds":[
-        "46785984-904d-4b78-985b-c789b9f959b1",
-        "2918f938-b015-4804-a760-320dca7e5b58",
-        "31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33",
-        "2aa02459-64b1-43b6-b733-e078200890ce"
-    ]
 	})
 
-	body = '{"url": "34.214.105.118:8080/img_for_api"}'
+	all_faces = find_faces()
+
+	body = '{"personGroupId": "uoft_hackathon_soundsight","faceIds": [\"' + '\",\"'.join(all_faces.keys()) + '\"]}'
 
 	try:
 		# Execute the REST API call and get the response.
@@ -239,12 +239,18 @@ def test_img():
 		data = response.read()
 		# 'data' contains the JSON data. The following formats the JSON data for display.
 		parsed = json.loads(data)
-		print("Response:")
+		print("Test img result:")
 		print(json.dumps(parsed, sort_keys=True, indent=2))
 		conn.close()
+		for each in parsed:
+			if len(each["candidates"]) >= 1:
+				all_faces[each["faceId"]]["name"] = names[each["candidates"][0]["personId"]]
+		print(all_faces)
+		return all_faces
 	except Exception as e:
 		print(e)
 		print("[Errno {0}] {1}".format(e.errno, e.strerror))
+		return all_faces
 
 
 #create_group()
@@ -283,8 +289,6 @@ time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_202002.jpg')
 time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_202039.jpg')
-
-
 
 # Cindy
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201240.jpg')
@@ -435,10 +439,6 @@ time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_233710.jpg')
 time.sleep(3)
 add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_233713.jpg')
-
 """
 
-print("Training")
-#train()
-#wait(100)
-find_faces()
+test_img(["83d9f8ca-32ab-4f9d-932d-09b2542cf6c6"])
