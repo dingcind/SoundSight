@@ -10,6 +10,14 @@ import base64
 from io import StringIO
 import json
 from create_group import test_img
+from watson_developer_cloud import *
+import ast
+from operator import itemgetter
+
+cutoff_score = 0.6
+entries_to_keep = 3
+visual_recognition = VisualRecognitionV3('2016-05-20', api_key='d6e7b0377be949ca1ea2109cd494c97c5415f2b6')
+
 
 new_image_path = "img_for_api.jpg"
 resulting_data_path = "result.txt"
@@ -50,9 +58,13 @@ class Item:
 
 items_global = []
 
-def normalize(new_data, theta):
-        new_data = sorted(new_data, key=lambda k: k["prob"])
+def normalize(new_data, theta, top):
+        for each in new_data:
+                if each["name"] in top:
+                        each["prob"] = 1.0
 
+        new_data = sorted(new_data, key=lambda k: k["prob"])
+        
         for item in items_global:
                 angle = 2*math.acos(item.pos)
                 angle += theta
@@ -99,6 +111,15 @@ def main():
 	new_image.close()
 	r = detect(net, meta, new_image_path)
 	im = cv2.imread(new_image_path)
+
+        response = json.dumps(visual_recognition.classify(images_file=open(new_image_path, 'rb')), indent=2)
+
+        array = ast.literal_eval(response).get('images', 0)[0].get('classifiers', 1)[0].get('classes', 2)
+        ordered = sorted(array, key=itemgetter('score'), reverse = True)
+        filtered = [it for it in ordered if it['score'] > cutoff_score]
+
+        top = filtered[:entries_to_keep]
+        
 		#print(im.shape)
 	width_max, height_max = im.shape[0:2]
 	#im = cv2.rectangle(im, (), (), (255,0,0,), 7)
@@ -142,7 +163,7 @@ def main():
         cv2.imwrite("test.png", im)
         print("*********")
         print("Before Normalization")
-	objects = normalize(objects, theta)
+	objects = normalize(objects, theta, top)
         print("After Normalization")
         print(objects)
         print("************\n**************")
