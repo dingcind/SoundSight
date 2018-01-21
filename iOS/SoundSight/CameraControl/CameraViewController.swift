@@ -10,76 +10,28 @@ import Foundation
 
 import UIKit
 import AVFoundation
-import TextToSpeechV1
 
-class CameraViewController: ViewController {
-    
+class CameraViewController: UIViewController{
+
   let session = AVCaptureSession()
   var camera : AVCaptureDevice?
   var cameraPreviewLayer : AVCaptureVideoPreviewLayer?
   var cameraCaptureOutput : AVCapturePhotoOutput?
-    var ready = true;
 
-    var textToSpeech: TextToSpeech!
-    var player: AVAudioPlayer?
-    
+
   override func viewDidLoad(){
     super.viewDidLoad()
     initializeCaptureSession()
-    
-    Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: {
-        (timer) in
-        if(self.ready) {
-            self.takePicture()
-        }
-    })
     // additional setup
   }
 
   //this function is to display the photo captured
-  func processCapturedPhoto(capturedPhoto : UIImage){
-    let imageData = UIImageJPEGRepresentation(capturedPhoto, 1)
-    let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
-    ready = false
-    let callback = ServerCalls.identifyImage(strBase64) as NSDictionary
-    ready = true
-    makeSound(data: callback)
-  }
-    
-    func makeSound(data: NSDictionary) {
-        // TODO: Sound off
-        print("FUCK YOU")
-        
-        textToSpeech = TextToSpeech(
-            username: "82fd2c0c-c897-4d91-af44-2d97e4fa3e5c",
-            password: "Zep7qdsmC7yP"
-        )
-        
-        let text = "Make America Great Again";
-        let voice = "en-US_AllisonVoice";
-        
-        let failure = { (error: Error) in print(error) }
-        textToSpeech.synthesize(
-            text,
-            voice: voice,
-            audioFormat: .wav,
-            failure: failure)
-        {
-            data in
-            do {
-                self.player = try AVAudioPlayer(data: data)
-                self.player!.pan = -0.7;
-                self.player!.volume = 1;
-                self.player!.play()
-            } catch {
-                print("Failed to create audio player.")
-            }
-        }
+  func displayCapturedPhoto(capturedPhoto : UIImage){
 
-    }
+  }
 
   func initializeCaptureSession(){
-    session.sessionPreset = AVCaptureSessionPresetMedium
+    session.sessionPreset = AVCaptureSessionPresetHigh
     camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
 
     do{
@@ -94,9 +46,8 @@ class CameraViewController: ViewController {
     }
 
     cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-//    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
+    cameraPreviewLayer?.videoGravity = AVLayerVideoGravityAspectFill
     cameraPreviewLayer?.frame = view.bounds
-    
     cameraPreviewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait
 
     view.layer.insertSublayer(cameraPreviewLayer!, at: 0)
@@ -105,12 +56,54 @@ class CameraViewController: ViewController {
 
   }
 
-  func takePicture() {
+  func takePicture(){
+
     let settings = AVCapturePhotoSettings()
     settings.flashMode = .off //if this fails check camera settings for flash off
+    settings
+
 
     cameraCaptureOutput?.capturePhoto(with: settings, delegate: self)
 
+  }
+
+  var deltaTheta: Float
+  var previousY: Float
+
+  func startGyros() {
+
+    previousY = 0
+    deltaTheta = 0
+
+     if motion.isGyroAvailable {
+        self.motion.gyroUpdateInterval = 1.0 / 60.0
+        self.motion.startGyroUpdates()
+
+        // Configure a timer to fetch the accelerometer data.
+        self.timer = Timer(fire: Date(), interval: (1.0/60.0),
+               repeats: true, block: { (timer) in
+           // Get the gyro data.
+           if let data = self.motion.gyroData {
+              let y = data.rotationRate.y
+
+              // integrate y to get delta theta
+              deltaTheta += (y+previousY)/2*60
+              previousY = y
+           }
+        })
+
+        // Add the timer to the current run loop.
+        RunLoop.current.add(self.timer!, forMode: .defaultRunLoopMode)
+     }
+  }
+
+  func stopGyros() {
+     if self.timer != nil {
+        self.timer?.invalidate()
+        self.timer = nil
+
+        self.motion.stopGyroUpdates()
+     }
   }
 
   override func didReceiveMemoryWarning(){
@@ -119,21 +112,22 @@ class CameraViewController: ViewController {
   }
 }
 
-extension CameraViewController : AVCapturePhotoCaptureDelegate{
+extension ViewController : AVCapturePhotoCaptureDelegate{
 
-    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?,error: Error?){
+  func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?,
+    previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCapureBracketedStillImageSettings?，error: Error?){
 
     if let unwrappedError = error {
       print(unwrappedError.localizedDescription)
     }
     else {
 
-        if let sampleBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+      if let sampleBuffer = photoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBugger: sampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
       {
         if let finalImage = UIImage(data: dataImage){
 
           //to do whatever with photo capture (aka send to quin)
-          processCapturedPhoto(capturedPhoto: finalImage)
+          displayCapturedPhoto(capturedPhoto: finalImage)
 
         }
       }
