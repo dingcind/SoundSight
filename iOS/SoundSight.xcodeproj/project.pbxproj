@@ -28,7 +28,7 @@
 		A5D2D1C8201416B80071C448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2D1C7201416B80071C448 /* Foundation.framework */; };
 		A5D2D1CA2014187E0071C448 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1C92014187E0071C448 /* SoundManager.m */; };
 		A5D2D1CE20141F300071C448 /* cena.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D1CD20141F300071C448 /* cena.mp3 */; };
-		A5D2D1DE20145EDB0071C448 /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2D1DD20145EDB0071C448 /* TextToSpeechV1.framework */; };
+		A5D2D1E12014ACDB0071C448 /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2D1DD20145EDB0071C448 /* TextToSpeechV1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D2D1DE20145EDB0071C448 /* TextToSpeechV1.framework in Frameworks */,
+				A5D2D1E12014ACDB0071C448 /* TextToSpeechV1.framework in Frameworks */,
 				A5D2D1C8201416B80071C448 /* Foundation.framework in Frameworks */,
 				A5D2D1C6201416B10071C448 /* UIKit.framework in Frameworks */,
 				A5D2D1C4201416A50071C448 /* AVFoundation.framework in Frameworks */,
