@@ -26,7 +26,42 @@ class CameraViewController: UIViewController{
   }
 
   //this function is to display the photo captured
-  func displayCapturedPhoto(capturedPhoto : UIImage){
+  func processCapturedPhoto(capturedPhoto : UIImage){
+    let imageData = UIImageJPEGRepresentation(capturedPhoto, 1)
+    let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
+    ready = false
+    let callback = ServerCalls.identifyImage(strBase64) as NSDictionary
+    ready = true
+    makeSound(data: callback)
+  }
+
+    func makeSound(data: NSDictionary) {
+        // TODO: Sound off
+        textToSpeech = TextToSpeech(
+            username: "82fd2c0c-c897-4d91-af44-2d97e4fa3e5c",
+            password: "Zep7qdsmC7yP"
+        )
+
+        let text = "Make America Great Again";
+        let voice = "en-US_AllisonVoice";
+
+        let failure = { (error: Error) in print(error) }
+        textToSpeech.synthesize(
+            text,
+            voice: voice,
+            audioFormat: .wav,
+            failure: failure)
+        {
+            data in
+            do {
+                self.player = try AVAudioPlayer(data: data)
+                self.player!.pan = -0.7;
+                self.player!.volume = 1;
+                self.player!.play()
+            } catch {
+                print("Failed to create audio player.")
+            }
+        }
 
   }
 
