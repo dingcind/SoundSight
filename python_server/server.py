@@ -53,9 +53,9 @@ def normalize(new_data, theta):
         new_data = sorted(new_data, key=lambda k: k["prob"])
 
         for item in items_global:
-                angle = math.acos(item.pos)
+                angle = 2*math.acos(item.pos)
                 angle += theta
-                item.pos = math.cos(angle)
+                item.pos = math.cos(0.5*angle)
         
 	global items_global
 	for each in new_data:
