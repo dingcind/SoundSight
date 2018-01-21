@@ -26,11 +26,11 @@ meta = load_meta("cfg/combine9k.data")
 os.chdir("../../python_server")
 
 class Item:
-	def __init__(self, name, pos, size):
+	def __init__(self, name, pos, size, init_age=0):
 		self.name = name
 		self.pos = pos
 		self.size = size
-		self.age = 0
+		self.age = init_age
 
 	def move(self, new_pos, new_size):
 		self.age = -1
@@ -73,6 +73,8 @@ def normalize(new_data, theta):
 		live_items.remove(None)
 	return [x.to_dict() for x in live_items]
 
+poll_on_3 = 0
+previous_people = {}
 
 @route('/main', method='POST')
 def main():
@@ -95,7 +97,14 @@ def main():
 	#im = cv2.rectangle(im, (), (), (255,0,0,), 7)
 	#os.system("rm -rf " + new_image_path)
 	print(r)
-	people = test_img()
+	global poll_on_3
+	global previous_people
+	if poll_on_3%3 == 0:
+		people = test_img()
+		previous_people = people
+	else:
+		people = previous_people
+	poll_on_3 = poll_on_3/3
 	print(people)
 	objects = []
 	print(max_width)
