@@ -9,6 +9,7 @@ import cv2
 import base64
 from io import StringIO
 import json
+from 
 
 new_image_path = "img.jpg"
 resulting_data_path = "result.txt"
@@ -104,10 +105,8 @@ def main():
 		#pos = x
 		size = float(width*height) / float(width_max * height_max) 
 		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
-
                 im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
                 pos = float(x)/float(width_max) - 0.5
-                
                 if pos < -1:
                         pos = -1
                 elif pos > 1:
