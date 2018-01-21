@@ -48,8 +48,6 @@ class CameraViewController: ViewController {
     
     func makeSound(data: NSDictionary) {
         // TODO: Sound off
-        print("FUCK YOU")
-        
         textToSpeech = TextToSpeech(
             username: "82fd2c0c-c897-4d91-af44-2d97e4fa3e5c",
             password: "Zep7qdsmC7yP"
