@@ -245,7 +245,6 @@ add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_2019
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_201919.jpg')
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_201921.jpg')
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_201923.jpg')
-"""
 time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_201929.jpg')
 time.sleep(3)
@@ -258,13 +257,10 @@ time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_202002.jpg')
 time.sleep(3)
 add_image('46785984-904d-4b78-985b-c789b9f959b1', 'photos/anna/IMG_20180120_202039.jpg')
-
 """
+
+
 # Cindy
-add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201233.jpg')
-time.sleep(3)
-add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201237.jpg')
-time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201240.jpg')
 time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201247.jpg')
@@ -276,8 +272,6 @@ time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201303.jpg')
 time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201320.jpg')
-time.sleep(3)
-add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201328.jpg')
 time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201334.jpg')
 time.sleep(3)
@@ -301,6 +295,7 @@ add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201
 time.sleep(3)
 add_image('2918f938-b015-4804-a760-320dca7e5b58', 'photos/cindy/IMG_20180120_201739.jpg')
 
+"""
 # Morris
 add_image('31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33', 'photos/morris/IMG_20180120_204103.jpg')
 time.sleep(3)
