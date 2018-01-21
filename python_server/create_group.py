@@ -153,12 +153,12 @@ def add_image(person_id, img_path):
 def train():
 	# Request headers.
 	headers = {
-		'Ocp-Apim-Subscription-Key': "0c723cbc14cf4d0abe07932a39484b0b",
+		'Ocp-Apim-Subscription-Key': "0c723cbc14cf4d0abe07932a39484b0b"
 	}
 
 	# Request parameters.
 	params = urllib.urlencode({
-		'personGroupId': 'uoft_hackathon_soundsight',
+		'personGroupId': 'uoft_hackathon_soundsight'
 	})
 
 	body = '{"url": "34.214.105.118:8080/add_img"}'
@@ -166,7 +166,7 @@ def train():
 	try:
 		# Execute the REST API call and get the response.
 		conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
-		conn.request("POST", "/face/v1.0/persongroups/{personGroupId}/train?%s" % params, "{}", headers)
+		conn.request("POST", "/face/v1.0/persongroups/{personGroupId}/train?%s" % params, body, headers)
 		response = conn.getresponse()
 		data = response.read()
 		# 'data' contains the JSON data. The following formats the JSON data for display.
