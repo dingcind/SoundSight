@@ -170,9 +170,8 @@ def train():
 		response = conn.getresponse()
 		data = response.read()
 		# 'data' contains the JSON data. The following formats the JSON data for display.
-		parsed = json.loads(data)
-		print("Response:")
-		print(json.dumps(parsed, sort_keys=True, indent=2))
+		if data == "":
+			print("Training command sent!")
 		conn.close()
 	except Exception as e:
 		print(e)
@@ -190,7 +189,7 @@ def test_img():
 	params = urllib.urlencode({
     "personGroupId":"uoft_hackathon_soundsight",
     "faceIds":[
-        "c1d260e2-097f-409d-ac50-24042261612d",
+        "46785984-904d-4b78-985b-c789b9f959b1",
         "2918f938-b015-4804-a760-320dca7e5b58",
         "31e9be1e-cf21-4c53-b5f8-dd5ec9b64c33",
         "2aa02459-64b1-43b6-b733-e078200890ce"
@@ -407,6 +406,6 @@ add_image('2aa02459-64b1-43b6-b733-e078200890ce', 'photos/quin/IMG_20180120_2337
 """
 
 print("Training")
-train()
-wait(100)
+#train()
+#wait(100)
 test_img()
