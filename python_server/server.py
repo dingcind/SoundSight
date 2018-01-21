@@ -9,7 +9,13 @@ import cv2
 import base64
 from io import StringIO
 import json
+<<<<<<< HEAD
 new_image_path = "img.jpg"
+=======
+from create_group import test_img
+
+new_image_path = "img_for_api.jpg"
+>>>>>>> f8d6cdf8979d3c86d0b4fc3d384cf10268cfb37f
 resulting_data_path = "result.txt"
 
 os.chdir("../yolo-9000/darknet/python")
@@ -47,7 +53,7 @@ class Item:
 
 
 items_global = []
-        
+
 def normalize(new_data, theta):
         new_data = sorted(new_data, key=lambda k: k["prob"])
 
@@ -55,7 +61,7 @@ def normalize(new_data, theta):
                 angle = 2*math.acos(item.pos)
                 angle += theta
                 item.pos = math.cos(0.5*angle)
-        
+
 	global items_global
 	for each in new_data:
 		for item in items_global:
@@ -93,6 +99,7 @@ def main():
 	#im = cv2.rectangle(im, (), (), (255,0,0,), 7)
 	#os.system("rm -rf " + new_image_path)
 	print(r)
+	print(test_img())
 	objects = []
 	for obj in r:
 		width = int(obj[2][2]/2)
@@ -101,7 +108,7 @@ def main():
 		y = int(obj[2][1])
 		name = obj[0]
 		#pos = x
-		size = float(width*height) / float(width_max * height_max) 
+		size = float(width*height) / float(width_max * height_max)
 		#objects.append({"name":name, "pos":pos, "size":size, "prob":obj[1]})
                 im = cv2.rectangle(im, (x+width, y+height), (x-width, y-height), (255, 0, 0), 7)
                 pos = float(x)/float(width_max) - 0.5
@@ -125,4 +132,3 @@ def get_example():
 	return {"data": [{"pos": -0.3, "size": 0.3, "name": "Quin"}, {"pos": 0.7, "size": 0.6, "name": "Anna"}]}
 
 run(host='0.0.0.0', port=80, debug=True, reloader=True)
-
