@@ -10,6 +10,7 @@ import Foundation
 
 import UIKit
 import AVFoundation
+import TextToSpeechV1
 
 class CameraViewController: ViewController {
     
@@ -19,6 +20,9 @@ class CameraViewController: ViewController {
   var cameraCaptureOutput : AVCapturePhotoOutput?
     var ready = true;
 
+    var textToSpeech: TextToSpeech!
+    var player: AVAudioPlayer?
+    
   override func viewDidLoad(){
     super.viewDidLoad()
     initializeCaptureSession()
@@ -44,8 +48,34 @@ class CameraViewController: ViewController {
     
     func makeSound(data: NSDictionary) {
         // TODO: Sound off
+        print("FUCK YOU")
         
-        super.play(withPan: 0.1);
+        textToSpeech = TextToSpeech(
+            username: "82fd2c0c-c897-4d91-af44-2d97e4fa3e5c",
+            password: "Zep7qdsmC7yP"
+        )
+        
+        let text = "Make America Great Again";
+        let voice = "en-US_AllisonVoice";
+        
+        let failure = { (error: Error) in print(error) }
+        textToSpeech.synthesize(
+            text,
+            voice: voice,
+            audioFormat: .wav,
+            failure: failure)
+        {
+            data in
+            do {
+                self.player = try AVAudioPlayer(data: data)
+                self.player!.pan = -0.7;
+                self.player!.volume = 1;
+                self.player!.play()
+            } catch {
+                print("Failed to create audio player.")
+            }
+        }
+
     }
 
   func initializeCaptureSession(){
