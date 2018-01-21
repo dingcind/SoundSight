@@ -11,18 +11,26 @@ import Foundation
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController{
+class CameraViewController: ViewController {
     
   let session = AVCaptureSession()
   var camera : AVCaptureDevice?
   var cameraPreviewLayer : AVCaptureVideoPreviewLayer?
   var cameraCaptureOutput : AVCapturePhotoOutput?
+    var ready = true;
 
   override func viewDidLoad(){
     super.viewDidLoad()
     initializeCaptureSession()
     
-    Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in self.takePicture()})
+    Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: {
+        (timer) in
+        if(self.ready) {
+            self.takePicture()
+        }
+    })
+    
+    makeSound()
     // additional setup
   }
 
@@ -30,16 +38,19 @@ class CameraViewController: UIViewController{
   func processCapturedPhoto(capturedPhoto : UIImage){
     let imageData = UIImageJPEGRepresentation(capturedPhoto, 1)
     let strBase64 = imageData?.base64EncodedString(options: .lineLength64Characters)
+    ready = false
     let callback = ServerCalls.identifyImage(strBase64) as NSDictionary
-    makeSound(data: callback)
+    ready = true
+//    makeSound(data: callback)
   }
     
-    func makeSound(data: NSDictionary) {
+    func makeSound(){//data: NSDictionary) {
         // TODO: Sound off
+        let tts = TextToSpeech.init()
     }
 
   func initializeCaptureSession(){
-    session.sessionPreset = AVCaptureSessionPresetHigh
+    session.sessionPreset = AVCaptureSessionPresetLow
     camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
 
     do{

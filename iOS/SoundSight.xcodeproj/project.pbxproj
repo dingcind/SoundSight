@@ -25,6 +25,11 @@
 		A5D2D1B72013ADE30071C448 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1B62013ADE30071C448 /* NetworkManager.m */; };
 		A5D2D1BB2013D3380071C448 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1BA2013D3380071C448 /* TextToSpeech.swift */; };
 		A5D2D1BD2013DA7D0071C448 /* ServerCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1BC2013DA7D0071C448 /* ServerCalls.m */; };
+		A5D2D1C2201408880071C448 /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A5D2D1C1201408880071C448 /* sample.mp3 */; };
+		A5D2D1C4201416A50071C448 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2D1C3201416A50071C448 /* AVFoundation.framework */; };
+		A5D2D1C6201416B10071C448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2D1C5201416B00071C448 /* UIKit.framework */; };
+		A5D2D1C8201416B80071C448 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D2D1C7201416B80071C448 /* Foundation.framework */; };
+		A5D2D1CA2014187E0071C448 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2D1C92014187E0071C448 /* SoundManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,12 @@
 		A5D2D1BA2013D3380071C448 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		A5D2D1BC2013DA7D0071C448 /* ServerCalls.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerCalls.m; sourceTree = "<group>"; };
 		A5D2D1BE2013DA930071C448 /* ServerCalls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerCalls.h; sourceTree = "<group>"; };
+		A5D2D1C1201408880071C448 /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
+		A5D2D1C3201416A50071C448 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A5D2D1C5201416B00071C448 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A5D2D1C7201416B80071C448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A5D2D1C92014187E0071C448 /* SoundManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		A5D2D1CB2014188A0071C448 /* SoundManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		A72D407665BDA23FCAE34372 /* Pods-SoundSightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.release.xcconfig"; sourceTree = "<group>"; };
 		CAEB01F01B3440C6E5B01EDB /* Pods-SoundSightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightUITests/Pods-SoundSightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED57FC2535CD439B5A60495D /* Pods-SoundSightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundSightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundSightTests/Pods-SoundSightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D2D1C8201416B80071C448 /* Foundation.framework in Frameworks */,
+				A5D2D1C6201416B10071C448 /* UIKit.framework in Frameworks */,
+				A5D2D1C4201416A50071C448 /* AVFoundation.framework in Frameworks */,
 				9B26D09362FED4234F6298D6 /* libPods-SoundSight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +127,9 @@
 		52807A263AC62978E9F13AE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2D1C7201416B80071C448 /* Foundation.framework */,
+				A5D2D1C5201416B00071C448 /* UIKit.framework */,
+				A5D2D1C3201416A50071C448 /* AVFoundation.framework */,
 				0357E70776CB73FE6B45BBB7 /* libPods-SoundSight.a */,
 				518429041D8821DC82616BA5 /* libPods-SoundSightTests.a */,
 				6DACD60883B4FAA2B7803CAE /* libPods-SoundSightUITests.a */,
@@ -158,6 +175,7 @@
 		A5D2D0F22013926D0071C448 /* SoundSight */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2D1CC2014196D0071C448 /* Sounds */,
 				A5D2D1B92013D30E0071C448 /* AudioManager */,
 				A5D2D1B52013ADB00071C448 /* NetworkManager */,
 				A5D2D1AE2013A9C20071C448 /* LockScreen */,
@@ -227,8 +245,18 @@
 			isa = PBXGroup;
 			children = (
 				A5D2D1BA2013D3380071C448 /* TextToSpeech.swift */,
+				A5D2D1CB2014188A0071C448 /* SoundManager.h */,
+				A5D2D1C92014187E0071C448 /* SoundManager.m */,
 			);
 			path = AudioManager;
+			sourceTree = "<group>";
+		};
+		A5D2D1CC2014196D0071C448 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A5D2D1C1201408880071C448 /* sample.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +379,7 @@
 				A5D2D1B42013A9DF0071C448 /* LockScreenScene.sks in Resources */,
 				A5D2D0FD2013926D0071C448 /* Assets.xcassets in Resources */,
 				A5D2D0FB2013926D0071C448 /* Main.storyboard in Resources */,
+				A5D2D1C2201408880071C448 /* sample.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +554,7 @@
 				A5D2D1B22013A9DF0071C448 /* LockScreenScene.swift in Sources */,
 				A5D2D1B72013ADE30071C448 /* NetworkManager.m in Sources */,
 				A5D2D1B32013A9DF0071C448 /* LockScreenViewController.swift in Sources */,
+				A5D2D1CA2014187E0071C448 /* SoundManager.m in Sources */,
 				A5D2D0F82013926D0071C448 /* ViewController.m in Sources */,
 				A5D2D1282013A0810071C448 /* CameraViewController.swift in Sources */,
 				A5D2D1BB2013D3380071C448 /* TextToSpeech.swift in Sources */,

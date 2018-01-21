@@ -17,7 +17,10 @@
         @"img" : img
     };
     
-    NSDictionary *data = [NetworkManager getDataFrom:@"34.214.105.118:80/" postData:inventory];
+    NSDictionary *data = [NetworkManager getDataFrom:@"http://34.214.105.118:80/main" postData:inventory];
+//    NSString *callback = [data objectForKey:@"Callback"];
+    
+    NSLog(@"Callback: %@", data);
     
     return data;
 }
